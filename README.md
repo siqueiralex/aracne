@@ -1,1 +1,7 @@
-# aracne
+# Aracne
+
+## Instructions to run:
+
+```
+$ make
+```
