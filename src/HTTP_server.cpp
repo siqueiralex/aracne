@@ -11,6 +11,7 @@ int main(){
 
 	char reponse_data[1024] = "HTTP/1.1 200 OK\r\n\n<html><body><h1>That's Server reply!</h1></body></html>";
 
+
 	int server_socket;
 	server_socket = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -30,10 +31,10 @@ int main(){
 		client_socket = accept( server_socket, NULL, NULL);
 		send(client_socket, reponse_data, sizeof(reponse_data), 0);
 		close(client_socket);
-
 		printf("connection accepted!");
 	} 
 
-	return 0;
 
+	return 0;
 }
+
