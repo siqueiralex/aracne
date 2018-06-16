@@ -9,7 +9,7 @@
 
 int main(){
 	
-	char message[256] = "You have reached the server!";
+	char message[256] = "You have reached the Proxy Server!";
 
 	//create a socket
 	int server_socket;
@@ -27,13 +27,17 @@ int main(){
 	listen(server_socket, 5);
 
 	int client_socket;
-	client_socket = accept(server_socket, NULL, NULL);
 
-	//send message
-	send(client_socket, message, sizeof(message), 0);
 
-	// close the socket
-	close(server_socket);
+	while(1){
+
+		client_socket = accept(server_socket, NULL, NULL);
+		char buffer[8192];	
+		recv(client_socket, &buffer, sizeof(buffer), 0);
+		printf("%s", buffer);		
+		close(client_socket);
+
+	}	
 
 	return 0;
 }
