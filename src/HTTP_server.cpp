@@ -31,10 +31,27 @@ int main(){
 		client_socket = accept( server_socket, NULL, NULL);
 		send(client_socket, reponse_data, sizeof(reponse_data), 0);
 		close(client_socket);
+<<<<<<< HEAD
 		printf("connection accepted!");
 	} 
+=======
+
+<<<<<<< HEAD
+		printf("connection accepted!");
+	} 
+
+	return 0;
+
+}
+=======
+	}
+>>>>>>> 3c713ea60638d6c35b0801d96603d24592eb6e57
 
 
 	return 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4825194215a8cd9ad0214b148aee738bbfcc574f
+>>>>>>> 3c713ea60638d6c35b0801d96603d24592eb6e57
