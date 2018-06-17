@@ -12,7 +12,7 @@ int main(){
 	Proxy_Server proxy;
 	proxy.init();
 
-	char request[4096];
+	char request[64768];
 
 	proxy.get_client_request(request);
 
@@ -31,10 +31,10 @@ int main(){
    	fclose(f_req);
 
 
-	char reply[8192];
+	char reply[64768];
 	proxy.make_request( request, reply);
 
-	remove("request.txt");
+	//remove("request.txt");
 
 	// save to file
 	f_rep = fopen("reply.txt", "w");
@@ -54,7 +54,7 @@ int main(){
 
 	do{cout << '\n' << "Press a key to close the connection...";}while(cin.get() != '\n');
 
-	remove("reply.txt");
+	//remove("reply.txt");
 
 
 	return 0;

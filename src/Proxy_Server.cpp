@@ -2,9 +2,9 @@
 
 int server_fd, client_socket, outbound_socket;
 struct sockaddr_in address;
-int addrlen;
+int addrlen, valread;
 int opt;
-char buffer[8096];
+char buffer[64768];
 
 void Proxy_Server::init(){
 	addrlen = sizeof(address);
@@ -84,9 +84,14 @@ void Proxy_Server::make_request(char *request, char* reply){
     strcpy(temp, request);
 
     send(outbound_socket, temp, sizeof(temp), 0);
-    recv(outbound_socket, &buffer, sizeof(buffer),0);
-
-    strcpy(reply, buffer);
+    valread = recv(outbound_socket, &buffer, sizeof(buffer),0);
+    strcpy(reply, buffer); 
+    valread = recv(outbound_socket, &buffer, sizeof(buffer),0);  
+    while(valread>0){
+        std::cout << "read: " << valread << std::endl;
+        strcat(reply, buffer);
+        valread = recv(outbound_socket, &buffer, sizeof(buffer),0);
+    }
 
 
 }
