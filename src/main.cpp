@@ -34,6 +34,8 @@ int main(){
 	char reply[8192];
 	proxy.make_request( request, reply);
 
+	remove("request.txt");
+
 	// save to file
 	f_rep = fopen("reply.txt", "w");
 	fprintf(f_rep, "%s",reply);
@@ -52,6 +54,7 @@ int main(){
 
 	do{cout << '\n' << "Press a key to close the connection...";}while(cin.get() != '\n');
 
+	remove("reply.txt");
 
 
 	return 0;
