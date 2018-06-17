@@ -9,6 +9,10 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netdb.h>
+
+#include "../include/HTTP_Parser.hpp"
+
 
 #define PORT 8228
 
@@ -19,7 +23,7 @@ public:
 	void init();
 	void get_client_request(char*);
 	void reply_client(char*);
-	void make_request(char*, char*);
+	void make_request( char*, char*);
 
 
 };

@@ -11,7 +11,7 @@ class HTTP_Parser{
 public:
 
 	static char* get_uri(char*, char*);
-
+	static char* get_host(char*, char*);
 };
 
 

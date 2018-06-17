@@ -32,7 +32,7 @@ void Proxy_Server::init(){
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 3) < 0)
+    if (listen(server_fd, 1) < 0)
     {
         perror("listen");
         exit(EXIT_FAILURE);
@@ -55,44 +55,40 @@ void Proxy_Server::get_client_request(char* request){
     strcpy(request, buffer);
 }
 
-void Proxy_Server::make_request(char* uri, char* reply){
+void Proxy_Server::make_request(char *request, char* reply){
 
-    if ((outbound_socket = socket(AF_INET, SOCK_STREAM, 0)) == 0)
-    {
-        perror("socket failed");
-        exit(EXIT_FAILURE);
+    struct hostent *req_host;
+    struct sockaddr_in serv_addr;
+
+    if((outbound_socket = socket(AF_INET,SOCK_STREAM,0)) < 0);
+
+    char host[256];
+    HTTP_Parser::get_host(request, host);
+
+    std::cout<<host;
+
+    req_host = gethostbyname(host);
+    if ( (req_host == NULL) || (req_host->h_addr == NULL) ) {
+        std::cout << "Error retrieving DNS information." << std::endl;
+        exit(1);
     }
 
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(80);
 
-    struct sockaddr_in remote_address;
-    remote_address.sin_family = AF_INET;
-    remote_address.sin_port = htons(80);
+    memcpy(&serv_addr.sin_addr.s_addr,req_host->h_addr,sizeof(req_host->h_addr));
+
+    if (connect(outbound_socket,(struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0);
     
-    inet_aton(uri, (struct in_addr *) &remote_address.sin_addr.s_addr);
+    char temp[8192];
+    strcpy(temp, request);
 
-
-
-    if(connect(outbound_socket, (struct sockaddr *)  &remote_address, sizeof(remote_address))<0){
-        perror("connection failed");
-        exit(EXIT_FAILURE);
-    }
-    
-
-    char request[] = "GET / HTTP/1.1\r\n\r\n";
-
-    if(send(outbound_socket, request, sizeof(request), 0)<0){
-        perror("failed to send request");
-        exit(EXIT_FAILURE);
-    }
-
-    if(recv(outbound_socket, &buffer, sizeof(buffer), 0)<0){
-        perror("failed to receive reply");
-        exit(EXIT_FAILURE);
-    }
+    send(outbound_socket, temp, sizeof(temp), 0);
+    recv(outbound_socket, &buffer, sizeof(buffer),0);
 
     strcpy(reply, buffer);
 
-    close(outbound_socket);
+
 }
 
 void Proxy_Server::reply_client(char* reply){
