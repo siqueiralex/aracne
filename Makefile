@@ -10,4 +10,4 @@ aracne: HTTP_Parser.o Proxy_Server.o src/main.cpp
 	g++ -Wall -std=c++11 -o aracne HTTP_Parser.o Proxy_Server.o src/main.cpp
 
 clean: 
-	rm HTTP_Parser.o Proxy_Server.o
+	rm HTTP_Parser.o Proxy_Server.o aracne
