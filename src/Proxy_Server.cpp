@@ -9,14 +9,12 @@ char buffer[64768];
 void Proxy_Server::init(){
 	addrlen = sizeof(address);
 	opt = 1;
-
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
     {
         perror("socket failed");
         exit(EXIT_FAILURE);
     }
-      
-    // Forcefully attaching socket to the port 8080
+
     if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt)))
     {
         perror("setsockopt");
@@ -40,9 +38,9 @@ void Proxy_Server::init(){
 
 }
 
-void Proxy_Server::get_client_request(char* request){
+std::string Proxy_Server::get_client_request(){
     
-    char buffer[4096];
+    char buffer[64768];
 
     if ((client_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)
     {
@@ -50,24 +48,27 @@ void Proxy_Server::get_client_request(char* request){
         exit(EXIT_FAILURE);
     }
 
-    read( client_socket , buffer, sizeof(buffer));
+    read(client_socket , buffer, sizeof(buffer));
 
-    strcpy(request, buffer);
+    std::string request(buffer);
+    return request;
 }
 
-void Proxy_Server::make_request(char *request, char* reply){
+
+
+std::string Proxy_Server::make_request(std::string req){
+
+    using namespace std;
 
     struct hostent *req_host;
     struct sockaddr_in serv_addr;
+    string request = req;
 
     if((outbound_socket = socket(AF_INET,SOCK_STREAM,0)) < 0);
 
-    char host[256];
-    HTTP_Parser::get_host(request, host);
+    string host =  HTTP_Parser::get_host(request);
 
-    std::cout<<host;
-
-    req_host = gethostbyname(host);
+    req_host = gethostbyname(host.c_str());
     if ( (req_host == NULL) || (req_host->h_addr == NULL) ) {
         std::cout << "Error retrieving DNS information." << std::endl;
         exit(1);
@@ -80,24 +81,25 @@ void Proxy_Server::make_request(char *request, char* reply){
 
     if (connect(outbound_socket,(struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0);
     
-    char temp[8192];
-    strcpy(temp, request);
-
-    send(outbound_socket, temp, sizeof(temp), 0);
-    valread = recv(outbound_socket, &buffer, sizeof(buffer),0);
-    strcpy(reply, buffer); 
-    valread = recv(outbound_socket, &buffer, sizeof(buffer),0);  
+    send(outbound_socket, request.c_str(), request.length(), 0);
+    char buff[2048];
+    valread = recv(outbound_socket, &buff, sizeof(buff),0);
+    std::cout << "read: " << valread << std::endl;
+    string reply(buff); 
+    valread = recv(outbound_socket, &buff, sizeof(buff),0);  
     while(valread>0){
         std::cout << "read: " << valread << std::endl;
-        strcat(reply, buffer);
-        valread = recv(outbound_socket, &buffer, sizeof(buffer),0);
+        reply.append(buff);
+        valread = recv(outbound_socket, &buff, sizeof(buff),0);
     }
+
+    return reply;
 
 
 }
 
-void Proxy_Server::reply_client(char* reply){
-    strcpy(buffer, reply);
+void Proxy_Server::reply_client(std::string reply){
+    strcpy(buffer, reply.c_str());
     if(send(client_socket, buffer, sizeof(buffer), 0)<0){
         perror("failed to send reply");
         exit(EXIT_FAILURE);

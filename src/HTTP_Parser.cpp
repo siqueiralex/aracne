@@ -4,30 +4,37 @@
 
 
 
-char* HTTP_Parser::get_uri(char* request, char* uri){
+std::string HTTP_Parser::get_uri(std::string request){
 	using namespace std;
 
-	string str(request);
+	string str = request;
     regex r("GET \\s*([^ ]*)");
     smatch m;
     regex_search(str, m, r);
-    string temp = m[1];
-    strcpy(uri, temp.c_str());
-
-	return 0;
+    return m[1];
+    
 
 }
 
-char* HTTP_Parser::get_host(char* request, char* host){
+std::string HTTP_Parser::get_host(std::string request){
 	using namespace std;
 
-	string str(request);
+	string str = request;
     regex r("Host: \\s*([^\\r]*)");
     smatch m;
     regex_search(str, m, r);
-    string temp = m[1];
-    strcpy(host, temp.c_str());
+    
+    return m[1];
+    
+}
 
-	return 0;
+std::set<std::string> HTTP_Parser::get_hrefs(char *body){
+    using namespace std;
+
+    string str(body);
+    regex r("href=\"(.*?)\">", regex_constants::icase);
+    set<string> hrefs = { sregex_token_iterator(str.begin(), str.end(), r, 1), sregex_token_iterator{} };
+
+    return hrefs;
 
 }
