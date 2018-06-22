@@ -1,22 +1,61 @@
 HTTP/1.1 200 OK
-Date: Tue, 19 Jun 2018 11:23:28 GMT
-Server: Apache/2.2.22
-X-Powered-By: PHP/5.4.38-0+deb7u1
-Vary: Accept-Encoding
-Keep-Alive: timeout=5, max=100
-Connection: Keep-Alive
-Transfer-Encoding: chunked
-Content-Type: text/html
+Connection: keep-alive
+Server: gunicorn/19.8.1
+Date: Fri, 22 Jun 2018 03:54:47 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 1673
+Via: 1.1 vegur
 
-210e
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="https://plus.google.com/113309602424331063294" rel="publisher">
-<title>cplusplus.com - The C++ Resources Network</title>
-<style type="text/css">TABLE.bgi {width:728px}
-.bgi TD {width:50%; border:2px solid black; vertical-align:top; padding-bottom:25px}
-.celltop {width:100%; height:32px; background-color:#F0F0FF; line-height:32px; vertical-align:middle; text-align:center; font-family:verdana,arial,helvetica,sans-serif; font-size:large; border-bottom:1px dotted #00007F;}
-.bgi TH A:link, .bgi TH A:visited, .bgi TH A:active {text-decoration: none;color:#00007F;} .bgi TH A:hover {text-decoration: underline;color:#00007F}
-.bgi
+<!doctype html>
+<meta charset="UTF-8">
+<form action="/"><input type="Submit" value="Voltar"></form>
+<ul><h1 style="color: #2e6c80;">Tweets de: Juv. Anticapitalista </h1> 
+<h2 style="color: #2e6c80;">Informações contidas nos CSV's:</h2>
+<ol>
+<li><p>Data: data em que foi criado o tweet</li></p>
+<li><p>Texto: texto completo do tweet</li>
+<li><p>Autor: Se for RT, contém o username do autor</li>
+<li><p>Retweets: Número de retweets do tweet</li>
+<li><p>Curtidas: Número de curtidas do tweet</li>
+<li><p>Hashtags: Lista de Hashtags presentes no tweet</li>
+<li><p>Mentions: Username de quem foi mencionado no tweet</p></li>
+</ol>
+</ul>
+<ul><h2 style="color: #2e6c80;">Intervalo de Captura:</h2>
+
+<p><font size="4">Atualmente capturando a cada <b>10080</b> minutos.
+    <br><p>Próxima captura: <b> 2018-06-26 15:21:13</b></p>
+    </font>
+</p>
+<form name="htmlform" method="post" action="/tweets/mudarintervalo/3370878539">
+</tr>
+<tr>
+ <td valign="left">
+  <label for="first_name"><font size="3"> Novo Intervalo: </font></label>
+ </td>
+ <td valign="left">
+  <input  type="number" name="intervalo" maxlength="10" size="5"> minutos
+ </td>
+ 
+ <td colspan="2" style="text-align:center">
+  <input type="submit" value="Modificar">
+ </td>
+</tr>
+</table>
+</form>
+<p>Obs: 1 dia = 1440 min, 1 semana = 10080 min<p>
+<h2 style="color: #2e6c80;">Links para download:</h2>
+
+
+<p><a href="/tweets/download_csv/28" download>Movimento_RUA-2018-06-05_20:30:41.csv </a> </p>
+  
+
+<p><a href="/tweets/download_csv/109" download>Movimento_RUA-2018-06-12_15:21:15.csv </a> </p>
+  
+
+<p><a href="/tweets/download_csv/172" download>Movimento_RUA-2018-06-19_15:21:15.csv </a> </p>
+  
+
+</ul>
+
+<br><br>

@@ -84,11 +84,9 @@ std::string Proxy_Server::make_request(std::string req){
     send(outbound_socket, request.c_str(), request.length(), 0);
     char buff[2048];
     valread = recv(outbound_socket, &buff, sizeof(buff),0);
-    std::cout << "read: " << valread << std::endl;
     string reply(buff); 
     valread = recv(outbound_socket, &buff, sizeof(buff),0);  
     while(valread>0){
-        std::cout << "read: " << valread << std::endl;
         reply.append(buff);
         valread = recv(outbound_socket, &buff, sizeof(buff),0);
     }

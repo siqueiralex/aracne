@@ -3,6 +3,7 @@
 #include "../include/Proxy_Server.hpp"
 #include "../include/HTTP_Request.hpp"
 #include "../include/HTTP_Response.hpp"
+#include "../include/String_Functions.hpp"
 
 using namespace std;
 
@@ -32,13 +33,20 @@ int main(){
 
 	using namespace std;
 
-	string Res_raw = string_from_file("reply.txt");
+	string Req_raw = string_from_file("request.txt");
 
-	HTTP_Response Response(Res_raw);
+	HTTP_Request Request(Req_raw);
 
-	cout << "Data: " << Response.data << endl;
+	cout << "Method: " << Request.method<<endl;
+	cout << "URL: " << Request.url << endl;
+	cout << "Version: " << Request.version<< endl;
+
+	for(std::map<string, string>::iterator it=Request.fields.begin(); it!=Request.fields.end(); ++it){
+		cout << it->first << ": " << it->second << endl;
+	}
+
+	cout<<"body: " << Request.body<<endl;
 
 
-	
 	return 0;
 }

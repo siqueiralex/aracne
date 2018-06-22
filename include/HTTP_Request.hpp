@@ -17,12 +17,7 @@ public:
 	std::string url;
 	std::string version;
 	std::map<std::string, std::string> fields; 
-
-
-
-
-	static std::vector<std::string> split(const std::string& s, const char& c);
-
+	std::string body;
 
 };
 
