@@ -13,7 +13,7 @@ class HTML_Parser{
 public:
 	static std::string get_uri(std::string);
 	static std::string get_host(std::string);
-	static std::set<std::string> get_hrefs(char*);
+	static std::set<std::string> get_hrefs(const char*);
 
 };
 
