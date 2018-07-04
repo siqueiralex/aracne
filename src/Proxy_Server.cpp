@@ -66,7 +66,8 @@ std::string Proxy_Server::make_request(std::string req){
 
     if((outbound_socket = socket(AF_INET,SOCK_STREAM,0)) < 0);
 
-    string host =  HTTP_Parser::get_host(request);
+    HTTP_Request reqst = HTTP_Request(request);
+    string host = reqst.fields["Host:"];
 
     req_host = gethostbyname(host.c_str());
     if ( (req_host == NULL) || (req_host->h_addr == NULL) ) {
@@ -97,8 +98,7 @@ std::string Proxy_Server::make_request(std::string req){
 }
 
 void Proxy_Server::reply_client(std::string reply){
-    strcpy(buffer, reply.c_str());
-    if(send(client_socket, buffer, sizeof(buffer), 0)<0){
+    if(send(client_socket, reply.c_str(), reply.length(), 0)<0){
         perror("failed to send reply");
         exit(EXIT_FAILURE);
     }

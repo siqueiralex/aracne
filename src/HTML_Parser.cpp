@@ -1,10 +1,10 @@
-#include "../include/HTTP_Parser.hpp"
+#include "../include/HTML_Parser.hpp"
 
 // any global variable
 
 
 
-std::string HTTP_Parser::get_uri(std::string request){
+std::string HTML_Parser::get_uri(std::string request){
 	using namespace std;
 
 	string str = request;
@@ -16,7 +16,7 @@ std::string HTTP_Parser::get_uri(std::string request){
 
 }
 
-std::string HTTP_Parser::get_host(std::string request){
+std::string HTML_Parser::get_host(std::string request){
 	using namespace std;
 
 	string str = request;
@@ -28,7 +28,7 @@ std::string HTTP_Parser::get_host(std::string request){
     
 }
 
-std::set<std::string> HTTP_Parser::get_hrefs(char *body){
+std::set<std::string> HTML_Parser::get_hrefs(char *body){
     using namespace std;
 
     string str(body);

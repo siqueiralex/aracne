@@ -1,5 +1,5 @@
-#ifndef HTTP_PRS_H
-#define HTTP_PRS_H
+#ifndef HTML_PRS_H
+#define HTML_PRS_H
 
 #include <regex>
 #include <iostream>
@@ -8,7 +8,7 @@
 #include <list>
 #include <set>
 
-class HTTP_Parser{
+class HTML_Parser{
 
 public:
 	static std::string get_uri(std::string);

@@ -11,7 +11,7 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
-#include "../include/HTTP_Parser.hpp"
+#include "../include/HTTP_Request.hpp"
 
 
 #define PORT 8228

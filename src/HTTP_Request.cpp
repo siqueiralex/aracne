@@ -26,4 +26,33 @@ HTTP_Request::HTTP_Request(std::string Request_String){
          fields[temp[0]] = temp[1];
     }
 
+    //lacks the body parser
+
+
 };
+HTTP_Request::HTTP_Request(){
+
+};
+
+std::string HTTP_Request::Assembly_Request(){
+    using namespace std;
+    string Request("");
+
+    Request.append(method);
+    Request.append(" ");
+    Request.append(url);
+    Request.append(" ");
+    Request.append(version);
+    Request.append("\r\n");
+
+    for (std::map<string,string>::iterator it=fields.begin(); it!=fields.end(); ++it){
+        Request.append(it->first);
+        Request.append(" ");
+        Request.append(it->second);
+        Request.append("\r\n");
+    }
+    Request.append("\r\n");
+
+    return Request;
+
+}

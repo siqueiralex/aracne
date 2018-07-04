@@ -33,3 +33,25 @@ std::vector<std::string> String_Functions::split_on_first(std::string str, const
 
     return tokens;
 }
+
+int String_Functions::string_to_file(std::string str, const char *file){
+    //save to  file
+    FILE *f;
+    f = fopen(file, "w");
+    fprintf(f, "%s",str.c_str());
+    fclose(f);
+
+    return 0;
+}
+
+std::string String_Functions::string_from_file(const char*file){
+
+    FILE *f;
+    char buffer[64768];
+    f = fopen(file, "rb");
+    fread (buffer, 1, sizeof(buffer), f);
+    fclose(f);
+
+    std::string res(buffer);
+    return res;
+}

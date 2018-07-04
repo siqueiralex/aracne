@@ -25,3 +25,35 @@ HTTP_Response::HTTP_Response(std::string Response_String){
     }
 
 };
+
+HTTP_Response::HTTP_Response(){
+
+
+};
+
+std::string HTTP_Response::Assembly_Response(){
+    using namespace std;
+    string Response("");
+
+    Response.append(version);
+    Response.append(" ");
+    Response.append(status_code);
+    Response.append("\r\n");
+
+    fields["Content-Length:"] = to_string(data.length());
+
+    for (std::map<string,string>::iterator it=fields.begin(); it!=fields.end(); ++it){
+        Response.append(it->first);
+        Response.append(" ");
+        Response.append(it->second);
+        Response.append("\r\n");
+    }
+
+
+    Response.append("\r\n");
+    Response.append(data);
+    Response.append("\r\n");
+
+    return Response;
+
+}
