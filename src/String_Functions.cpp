@@ -28,6 +28,13 @@ std::vector<std::string> String_Functions::split_on_first(std::string str, const
     int offset = os.length();
 
     std::size_t found =str.find(delimiter);
+
+    if(found > (str.length()-offset)){
+        tokens.push_back(str);
+        tokens.push_back(str);
+        return tokens;
+    }
+
     tokens.push_back(str.substr(0, found));
     tokens.push_back(str.substr(found+offset, str.length()-offset));
 

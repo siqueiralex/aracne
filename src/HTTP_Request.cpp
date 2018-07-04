@@ -32,6 +32,9 @@ HTTP_Request::HTTP_Request(std::string Request_String){
 };
 HTTP_Request::HTTP_Request(){
 
+    method = "GET";
+    version = "HTTP/1.1";
+
 };
 
 std::string HTTP_Request::Assembly_Request(){

@@ -7,11 +7,13 @@ using namespace std;
 
 HTTP_Response::HTTP_Response(std::string Response_String){
 
-    
     vector<string> splitted = String_Functions::split(Response_String, "\r\n\r\n");
+    if(splitted.size()<2)
+        splitted = String_Functions::split_on_first(Response_String, "\n\n");
+    
     string header = splitted[0];
 	data = splitted[1];
-
+ 
 	vector<string> hd_lines = String_Functions::split(header, "\r\n");
 	string first_line = hd_lines[0];
 	vector<string> fl_tokens = String_Functions::split_on_first(first_line, " ");
