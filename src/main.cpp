@@ -10,6 +10,10 @@ using namespace std;
 
 int main(){
 
-	
+	string url("http://twitter-data-monitor-unb.herokuapp.com");
+
+	Spider spider = Spider(url);	
+
+	spider.dump_htmls(1);
 }
 

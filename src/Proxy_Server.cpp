@@ -30,7 +30,7 @@ void Proxy_Server::init(){
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 50) < 0)
+    if (listen(server_fd, 1) < 0)
     {
         perror("listen");
         exit(EXIT_FAILURE);

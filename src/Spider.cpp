@@ -23,14 +23,9 @@ Spider::Spider(string url){
 	 	return;
 	}
 	
-	if(internal.find('/')!=0){
+	if(internal.find('/')!=0 && internal.find('/')<internal.length()){
 		vector<string> result2 = String_Functions::split_on_first(internal, "/");
 		if(host.length()==0){
-			/*
-			
-			SHOULD EVALUATE HOST HERE??
-
-			*/
 			host = result2[0];	
 		}else{
 			cout << "ERROR! INVALID URL IN SPIDER CALL: "<< url <<endl;
@@ -38,8 +33,12 @@ Spider::Spider(string url){
 		}
 		root = "/";
 		root.append(result2[1]);
-	}else
-		root = url;
+	}else if(internal.find('/')>internal.length()){
+		root = "/";
+		host = internal;
+	}else{
+		cout << "ERROR! INVALID URL IN SPIDER CALL: "<< url <<endl;
+	}
 
 };
 
@@ -78,8 +77,11 @@ string Spider::parse_url(string url){
 		vector<string> result2 = String_Functions::split_on_first(internal, "/");
 		parsed = "/";
 		parsed.append(result2[1]);
-	}else
+	}else{
 		parsed = url;
+	}		
+	if(parsed!=url) aliases[parsed]=url;
+	
 	return parsed;
 }
 
@@ -115,11 +117,19 @@ void Spider::generate_tree(int levels){
 				set<string> all_hrefs = HTML_Parser::get_hrefs(response.data.c_str());
 				set<string> local_hrefs;
 				for (std::set<string>::iterator it=all_hrefs.begin(); it!=all_hrefs.end(); ++it)
-			        if(this->eval_url(*it)){
+			        if(this->eval_url(*it))
 			        	local_hrefs.insert(this->parse_url(*it));
-			        	if(this->parse_url(*it)!=*it)
-			        		aliases[this->parse_url(*it)]=*it;
-			        }
+			    
+			 //    all_hrefs = HTML_Parser::get_sources(response.data.c_str());
+				// for (std::set<string>::iterator it=all_hrefs.begin(); it!=all_hrefs.end(); ++it)
+			 //        if(this->eval_url(*it))
+			 //        	local_hrefs.insert(this->parse_url(*it));
+
+			 //    all_hrefs = HTML_Parser::get_imports(response.data.c_str());
+				// for (std::set<string>::iterator it=all_hrefs.begin(); it!=all_hrefs.end(); ++it)
+			 //        if(this->eval_url(*it))
+			 //        	local_hrefs.insert(this->parse_url(*it));    	    
+			        
 			    
 			    par_child[*url]=local_hrefs;
 				
@@ -159,6 +169,10 @@ std::string Spider::url_to_filename(std::string url_in){
 	}
 	if(filename.find(".")>filename.length())
 		filename.append(".html");
+	else if(filename.find("?")<filename.length()){
+		int ask = filename.find("?");
+		filename = filename.substr(0,ask);
+	}
 	return filename;
 }
 
