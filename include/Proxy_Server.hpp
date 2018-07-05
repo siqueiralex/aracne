@@ -20,7 +20,7 @@ class Proxy_Server{
 
 public:
 
-	void init();
+	void init(int);
 	std::string get_client_request();
 	void reply_client(std::string);
 	std::string make_request(std::string);

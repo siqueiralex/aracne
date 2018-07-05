@@ -6,7 +6,7 @@ int addrlen, valread;
 int opt;
 char buffer[64768];
 
-void Proxy_Server::init(){
+void Proxy_Server::init(int port){
 	addrlen = sizeof(address);
 	opt = 1;
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
@@ -23,7 +23,7 @@ void Proxy_Server::init(){
 
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
+    address.sin_port = htons(port);
 
     if (bind(server_fd, (struct sockaddr *)&address,sizeof(address))<0)
     {

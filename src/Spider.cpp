@@ -7,8 +7,8 @@
 
 using namespace std;
 
-Spider::Spider(string url){
-
+Spider::Spider(string url, int port){
+	proxy_port = port;
 	string internal = url;
 	vector<string> result = String_Functions::split(internal, "//");
 	if(result.size()==2){
@@ -97,7 +97,8 @@ void Spider::generate_tree(int levels){
 	}
 
 	Proxy_Server proxy = Proxy_Server();
-	proxy.init();
+	//int port = rand()%30000 + 30000;
+	proxy.init(proxy_port);
 	HTTP_Request request = HTTP_Request();
 	set<string> to_request;
 	to_request.insert(root);

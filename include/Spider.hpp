@@ -11,7 +11,8 @@ class Spider{
 
 public:
 
-	Spider(std::string);
+	Spider(std::string, int);
+	int proxy_port;
 	std::string root;
 	std::string host;
 	std::set<std::string> visited_urls;
