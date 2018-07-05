@@ -44,8 +44,8 @@ std::vector<std::string> String_Functions::split_on_first(std::string str, const
 int String_Functions::string_to_file(std::string str, const char *file){
     //save to  file
     FILE *f;
-    f = fopen(file, "w");
-    fprintf(f, "%s",str.c_str());
+    f = fopen(file, "wb");
+    fwrite( str.data(),str.length(),1, f);
     fclose(f);
 
     return 0;
@@ -61,4 +61,18 @@ std::string String_Functions::string_from_file(const char*file){
 
     std::string res(buffer);
     return res;
+}
+
+std::string String_Functions::replace(std::string file, const char*from,const char*to){
+
+    string str = file;
+    string os(from);
+    int size = os.length();
+    int found = str.find(from);
+    while(found<str.length()){
+        str.replace(found, size, to);
+        found = str.find(from);
+    }
+
+    return str;
 }

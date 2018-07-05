@@ -110,12 +110,16 @@ void Spider::generate_tree(int levels){
 				cout << "Checking the URI: "<< *url<<endl;
 				string reply = proxy.make_request(request.Assembly_Request());
 				HTTP_Response response = HTTP_Response(reply);
-				htmls[*url] = response.data;
+				htmls[*url] = reply;
 
 				set<string> all_hrefs = HTML_Parser::get_hrefs(response.data.c_str());
 				set<string> local_hrefs;
 				for (std::set<string>::iterator it=all_hrefs.begin(); it!=all_hrefs.end(); ++it)
-			        if(this->eval_url(*it)) local_hrefs.insert(this->parse_url(*it));
+			        if(this->eval_url(*it)){
+			        	local_hrefs.insert(this->parse_url(*it));
+			        	if(this->parse_url(*it)!=*it)
+			        		aliases[this->parse_url(*it)]=*it;
+			        }
 			    
 			    par_child[*url]=local_hrefs;
 				
@@ -168,18 +172,41 @@ void Spider::dump_htmls(int levels){
 	for(set<string>::iterator it = to_translate.begin(); it!=to_translate.end(); ++it)
 		dictionary[*it]=Spider::url_to_filename(*it);
 	
+	
 
+	for(std::map<string,string>::iterator it=htmls.begin(); it!=htmls.end(); ++it){
+     
+        HTTP_Response resp = HTTP_Response(it->second);
+        if(resp.fields.find("Content-Type:") != resp.fields.end())
+        	if(resp.fields["Content-Type:"].find("html")<resp.fields["Content-Type:"].length()){
+        		htmls[it->first] = HTML_Parser::isolate_html(it->second.c_str());
+			}else{	
+				/* What to do if its not HTML?*/
+				htmls[it->first] = resp.data;	
+			}
+		else{	
+			htmls[it->first] = resp.data;
+		}
+	}
 
-
-	/* Lacks replacing each href in each string */
-
-	/* Lacks html isolating */
 
 
 	for(std::map<string,string>::iterator it=htmls.begin(); it!=htmls.end(); ++it)
-        String_Functions::string_to_file(it->second, dictionary[it->first].c_str());
-      
-       
+    	for(std::map<string,string>::iterator dt=dictionary.begin(); dt!=dictionary.end(); ++dt){
+    		string from("\"");from.append(dt->first.c_str());from.append("\"");
+    		string to("\"");to.append(dt->second.c_str());to.append("\"");
+    		it->second = String_Functions::replace(it->second,from.c_str(),to.c_str());
+    		if(aliases.find(dt->second) != aliases.end()){
+    			string from("\"");from.append(aliases[dt->second].c_str());from.append("\"");
+    			string to("\"");to.append(dt->second.c_str());to.append("\"");
+    			it->second = String_Functions::replace(it->second,from.c_str(),to.c_str());
+    		}
+    }       	
+		
 
 
+	for(std::map<string,string>::iterator it=htmls.begin(); it!=htmls.end(); ++it){
+		cout << "Saving file: " << dictionary[it->first] << endl;
+        String_Functions::string_to_file(it->second, dictionary[it->first].c_str());   
+    }
 }

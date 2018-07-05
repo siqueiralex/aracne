@@ -30,7 +30,7 @@ void Proxy_Server::init(){
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 1) < 0)
+    if (listen(server_fd, 50) < 0)
     {
         perror("listen");
         exit(EXIT_FAILURE);
@@ -83,13 +83,14 @@ std::string Proxy_Server::make_request(std::string req){
     if (connect(outbound_socket,(struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0);
     
     send(outbound_socket, request.c_str(), request.length(), 0);
-    char buff[2048];
-    valread = recv(outbound_socket, &buff, sizeof(buff),0);
+    
+    char buff[1];
+    valread = read(outbound_socket, &buff, sizeof(buff));
     string reply(buff); 
-    valread = recv(outbound_socket, &buff, sizeof(buff),0);  
+    valread = read(outbound_socket, &buff, sizeof(buff));  
     while(valread>0){
         reply.append(buff);
-        valread = recv(outbound_socket, &buff, sizeof(buff),0);
+        valread = read(outbound_socket, &buff, sizeof(buff));
     }
 
     return reply;

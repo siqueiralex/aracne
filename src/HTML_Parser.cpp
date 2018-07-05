@@ -38,3 +38,19 @@ std::set<std::string> HTML_Parser::get_hrefs(const char *body){
     return hrefs;
 
 }
+
+std::string HTML_Parser::isolate_html(const char *data){
+    using namespace std;
+    
+    string str(data);
+    int from =str.find("<");
+    int to = str.find("</html>");
+
+    if(from>=str.length())
+        return str;
+
+    if(to>=str.length())
+        return str.substr(from, str.length()-from);
+
+    return str.substr(from, to-from+7);
+}
