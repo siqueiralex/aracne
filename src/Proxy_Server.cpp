@@ -6,7 +6,7 @@ int addrlen, valread;
 int opt;
 char buffer[64768];
 
-void Proxy_Server::init(int port){
+Proxy_Server::Proxy_Server(int port){
 	addrlen = sizeof(address);
 	opt = 1;
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
@@ -36,7 +36,7 @@ void Proxy_Server::init(int port){
         exit(EXIT_FAILURE);
     }
 
-}
+};
 
 std::string Proxy_Server::get_client_request(){
     

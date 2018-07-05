@@ -96,9 +96,8 @@ void Spider::generate_tree(int levels){
 		return;
 	}
 
-	Proxy_Server proxy = Proxy_Server();
 	//int port = rand()%30000 + 30000;
-	proxy.init(proxy_port);
+	Proxy_Server proxy = Proxy_Server(proxy_port);
 	HTTP_Request request = HTTP_Request();
 	set<string> to_request;
 	to_request.insert(root);
@@ -218,10 +217,16 @@ void Spider::dump_htmls(int levels){
     		}
     }       	
 		
+    string command("rm -rf ");
+    command.append(host);
+	system(command.c_str());
+    command.assign("mkdir ");
+    command.append(host);
+	system(command.c_str());
 
-
+    cout << "Saving files in a new directory named " << host << endl;
 	for(std::map<string,string>::iterator it=htmls.begin(); it!=htmls.end(); ++it){
 		cout << "Saving file: " << dictionary[it->first] << endl;
-        String_Functions::string_to_file(it->second, dictionary[it->first].c_str());   
+        String_Functions::string_to_file(it->second, host.c_str(), dictionary[it->first].c_str());   
     }
 }

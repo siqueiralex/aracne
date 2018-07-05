@@ -23,4 +23,4 @@ aracne: HTML_Parser.o Proxy_Server.o Spider.o String_Functions.o HTTP_Response.o
 	g++ -Wall -std=c++11 -o aracne HTML_Parser.o Spider.o HTTP_Request.o HTTP_Response.o Proxy_Server.o String_Functions.o src/main.cpp
 
 clean: 
-	rm HTML_Parser.o Proxy_Server.o HTTP_Request.o Spider.o HTTP_Response.o String_Functions.o
+	rm aracne HTML_Parser.o Proxy_Server.o HTTP_Request.o Spider.o HTTP_Response.o String_Functions.o

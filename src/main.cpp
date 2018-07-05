@@ -5,6 +5,7 @@
 #include "../include/HTTP_Request.hpp"
 #include "../include/HTTP_Response.hpp"
 #include "../include/String_Functions.hpp"
+
 using namespace std;
 
 int process_arguments(int argc, char **argv){
@@ -32,18 +33,22 @@ int main(int argc, char **argv){
 	int port = process_arguments(argc, argv);
 	cout <<"Aracne started using port: "<< port << endl;
 	
-	Proxy_Server proxy = Proxy_Server();
-	proxy.init(port);
-	string request = proxy.get_client_request();
+	// Client Proxy usage 
+	// Proxy_Server proxy = Proxy_Server(port);
+	// string request = proxy.get_client_request();
+	// string reply = proxy.make_request(request);
+	// String_Functions::string_to_file(reply,"", "reply.txt");
+	// proxy.reply_client(reply);
+
+
 
 	string url("www.ba.gov.br");
 	Spider spider = Spider(url, port);
-	spider.generate_tree(1);
+	spider.dump_htmls(0);
 
-	string reply = proxy.make_request(request);
-	String_Functions::string_to_file(reply, "reply.txt");
-
-	proxy.reply_client(reply);
+	//do the same changing the final line to:
+	//spider.generate_tree(level);
+	//to simply generate the tree.
 
 	return 0;
 }

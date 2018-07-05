@@ -41,10 +41,13 @@ std::vector<std::string> String_Functions::split_on_first(std::string str, const
     return tokens;
 }
 
-int String_Functions::string_to_file(std::string str, const char *file){
+int String_Functions::string_to_file(std::string str, const char *path, const char *file){
     //save to  file
     FILE *f;
-    f = fopen(file, "wb");
+    string full_path(path);
+    full_path.append("/");
+    full_path.append(file);
+    f = fopen(full_path.c_str(), "wb");
     fwrite( str.data(),str.length(),1, f);
     fclose(f);
 
