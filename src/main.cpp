@@ -34,17 +34,17 @@ int main(int argc, char **argv){
 	cout <<"Aracne started using port: "<< port << endl;
 	
 	// Client Proxy usage 
-	// Proxy_Server proxy = Proxy_Server(port);
-	// string request = proxy.get_client_request();
-	// string reply = proxy.make_request(request);
-	// String_Functions::string_to_file(reply,"", "reply.txt");
-	// proxy.reply_client(reply);
+	Proxy_Server proxy = Proxy_Server(port);
+	string request = proxy.get_client_request();
+	string reply = proxy.make_request(request);
+	String_Functions::string_to_file(reply,"./", "reply.txt");
+	proxy.reply_client(reply);
 
 
 
-	string url("www.ba.gov.br");
-	Spider spider = Spider(url, port);
-	spider.dump_htmls(0);
+	// string url("www.ba.gov.br");
+	// Spider spider = Spider(url, port);
+	// spider.dump_htmls(0);
 
 	//do the same changing the final line to:
 	//spider.generate_tree(level);
