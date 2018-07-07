@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
+    return a.exec();
 
     int port = process_arguments(argc, argv);
     cout <<"Aracne started using port: "<< port << endl;
@@ -52,7 +53,6 @@ int main(int argc, char *argv[])
     proxy.reply_client(response.Assembly_Response());
 
 
-
     // string url("www.ba.gov.br");
     // Spider spider = Spider(url, port);
     // spider.dump_htmls(0);
@@ -61,5 +61,4 @@ int main(int argc, char *argv[])
     //spider.generate_tree(level);
     //to simply generate the tree.
 
-    return a.exec();
 }
