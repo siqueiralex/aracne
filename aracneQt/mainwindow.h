@@ -22,8 +22,6 @@ private slots:
 
     void on_actionDump_triggered();
 
-    void on_lineEdit_2_returnPressed();
-
 private:
     Ui::MainWindow *ui;
     SpiderWindow *spiderWindow;
