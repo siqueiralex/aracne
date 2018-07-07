@@ -1,61 +1,61 @@
-#include "HTTP_Request.hpp"
+#include "HTTP_Response.hpp"
 #include "String_Functions.hpp"
 
 using namespace std;
 //construtor
 
 
-HTTP_Request::HTTP_Request(std::string Request_String){
+HTTP_Response::HTTP_Response(std::string Response_String){
 
-    vector<string> splitted = String_Functions::split(Request_String, "\r\n\r\n");
+    vector<string> splitted = String_Functions::split(Response_String, "\r\n\r\n");
+    if(splitted.size()<2)
+        splitted = String_Functions::split_on_first(Response_String, "\n\n");
+
     string header = splitted[0];
-    if(splitted.size()>1)body = splitted[1];
+    data = splitted[1];
 
-    vector<string> lines = String_Functions::split(header, "\r\n");
-
-    //parsing header
-    string first_line = lines[0];
-    vector<string> fl_tokens = String_Functions::split(first_line, " ");
-    method = fl_tokens[0];
-    url = fl_tokens[1];
-    version = fl_tokens[2];
+    vector<string> hd_lines = String_Functions::split(header, "\r\n");
+    string first_line = hd_lines[0];
+    vector<string> fl_tokens = String_Functions::split_on_first(first_line, " ");
+    version = fl_tokens[0];
+    status_code = fl_tokens[1];
 
     vector<string> temp;
-    for( int i = 1; i<lines.size(); i++){
-         temp = String_Functions::split_on_first(lines[i], " ");
+    for( int i = 1; i<hd_lines.size(); i++){
+         temp = String_Functions::split_on_first(hd_lines[i], " ");
          fields[temp[0]] = temp[1];
     }
 
-    //lacks the body parser
+};
+
+HTTP_Response::HTTP_Response(){
 
 
 };
-HTTP_Request::HTTP_Request(){
 
-    method = "GET";
-    version = "HTTP/1.1";
-
-};
-
-std::string HTTP_Request::Assembly_Request(){
+std::string HTTP_Response::Assembly_Response(){
     using namespace std;
-    string Request("");
+    string Response("");
 
-    Request.append(method);
-    Request.append(" ");
-    Request.append(url);
-    Request.append(" ");
-    Request.append(version);
-    Request.append("\r\n");
+    Response.append(version);
+    Response.append(" ");
+    Response.append(status_code);
+    Response.append("\r\n");
+
+    fields["Content-Length:"] = to_string(data.length());
 
     for (std::map<string,string>::iterator it=fields.begin(); it!=fields.end(); ++it){
-        Request.append(it->first);
-        Request.append(" ");
-        Request.append(it->second);
-        Request.append("\r\n");
+        Response.append(it->first);
+        Response.append(" ");
+        Response.append(it->second);
+        Response.append("\r\n");
     }
-    Request.append("\r\n");
 
-    return Request;
+
+    Response.append("\r\n");
+    Response.append(data);
+    Response.append("\r\n");
+
+    return Response;
 
 }

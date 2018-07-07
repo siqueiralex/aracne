@@ -1088,8 +1088,7 @@ HTTP_Request.o: ../aracneQt/HTTP_Request.cpp ../aracneQt/HTTP_Request.hpp \
 		../aracneQt/String_Functions.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o HTTP_Request.o ../aracneQt/HTTP_Request.cpp
 
-HTTP_Response.o: ../aracneQt/HTTP_Response.cpp ../aracneQt/HTTP_Request.hpp \
-		../aracneQt/String_Functions.hpp
+HTTP_Response.o: ../aracneQt/HTTP_Response.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o HTTP_Response.o ../aracneQt/HTTP_Response.cpp
 
 Proxy_Server.o: ../aracneQt/Proxy_Server.cpp ../aracneQt/HTTP_Request.hpp \
