@@ -1,4 +1,5 @@
 #include "../include/Proxy_Server.hpp"
+#include "../include/HTTP_Request.hpp"
 
 int server_fd, client_socket, outbound_socket;
 struct sockaddr_in address;
