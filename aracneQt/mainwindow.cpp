@@ -16,7 +16,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionSpider_triggered()
 {
-    SpiderWindow sWindow;
-    sWindow.setModal(true);
-    sWindow.exec();
+    spiderWindow = new SpiderWindow(this);
+    spiderWindow->show();
+}
+
+void MainWindow::on_actionDump_triggered()
+{
+    dumpWindow = new DumpWindow(this);
+    dumpWindow->show();
 }

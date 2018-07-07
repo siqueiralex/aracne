@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "spiderwindow.h"
+#include "dumpwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,8 +20,12 @@ public:
 private slots:
     void on_actionSpider_triggered();
 
+    void on_actionDump_triggered();
+
 private:
     Ui::MainWindow *ui;
+    SpiderWindow *spiderWindow;
+    DumpWindow *dumpWindow;
 };
 
 #endif // MAINWINDOW_H
