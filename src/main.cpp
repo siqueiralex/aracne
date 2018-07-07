@@ -35,10 +35,14 @@ int main(int argc, char **argv){
 	
 	// Client Proxy usage 
 	Proxy_Server proxy = Proxy_Server(port);
-	string request = proxy.get_client_request();
-	string reply = proxy.make_request(request);
-	String_Functions::string_to_file(reply,"./", "reply.txt");
-	proxy.reply_client(reply);
+	string req = proxy.get_client_request();
+	HTTP_Request request = HTTP_Request(req);
+	String_Functions::string_to_file(req,"./", "request.txt");
+
+	string reply = proxy.make_request(request.Assembly_Request());
+	HTTP_Response response = HTTP_Response(reply);
+	String_Functions::string_to_file(reply,"./", "response.txt");
+	proxy.reply_client(response.Assembly_Response());
 
 
 
