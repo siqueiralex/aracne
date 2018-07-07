@@ -31,7 +31,8 @@ SOURCES += \
     HTTP_Response.cpp \
     Proxy_Server.cpp \
     Spider.cpp \
-    String_Functions.cpp
+    String_Functions.cpp \
+    spiderwindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,9 @@ HEADERS += \
     HTTP_Response.hpp \
     Proxy_Server.hpp \
     Spider.hpp \
-    String_Functions.hpp
+    String_Functions.hpp \
+    spiderwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    spiderwindow.ui
