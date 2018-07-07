@@ -12,15 +12,16 @@
 #include <netdb.h>
 
 
+
 #define PORT 8228
 
 class Proxy_Server{
 
 public:
-	Proxy_Server(int);
-	std::string get_client_request();
-	void reply_client(std::string);
-	std::string make_request(std::string);
+    Proxy_Server(int);
+    std::string get_client_request();
+    void reply_client(std::string);
+    std::string make_request(std::string);
 
 
 };

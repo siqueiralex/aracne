@@ -1,5 +1,5 @@
-#include "../include/HTTP_Request.hpp"
-#include "../include/String_Functions.hpp"
+#include "HTTP_Request.hpp"
+#include "String_Functions.hpp"
 
 using namespace std;
 //construtor

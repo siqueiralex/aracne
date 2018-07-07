@@ -1,31 +1,29 @@
-#include "../include/HTML_Parser.hpp"
+#include "HTML_Parser.hpp"
 
 // any global variable
 
-
-
 std::string HTML_Parser::get_uri(std::string request){
-	using namespace std;
+    using namespace std;
 
-	string str = request;
+    string str = request;
     regex r("GET \\s*([^ ]*)");
     smatch m;
     regex_search(str, m, r);
     return m[1];
-    
+
 
 }
 
 std::string HTML_Parser::get_host(std::string request){
-	using namespace std;
+    using namespace std;
 
-	string str = request;
+    string str = request;
     regex r("Host: \\s*([^\\r]*)");
     smatch m;
     regex_search(str, m, r);
-    
+
     return m[1];
-    
+
 }
 
 std::set<std::string> HTML_Parser::get_hrefs(const char *body){
@@ -55,7 +53,7 @@ std::set<std::string> HTML_Parser::get_sources(const char *body){
     }
 
 
-    
+
     return sources;
 
 }
@@ -77,11 +75,11 @@ std::set<std::string> HTML_Parser::get_imports(const char *body){
 
 std::string HTML_Parser::isolate_html(const char *data){
     using namespace std;
-    
+
     string str(data);
     int from =str.find("<!DOCTYPE");
     if(from>str.length()){
-       int from =str.find("<html"); 
+       int from =str.find("<html");
     }
     int to = str.find("</html>");
 
