@@ -1,108 +1,172 @@
 #include "../include/Proxy_Server.hpp"
-#include "../include/HTTP_Request.hpp"
+#include "../include/String_Functions.hpp"
 
-int server_fd, client_socket, outbound_socket;
-struct sockaddr_in address;
-int addrlen, valread;
-int opt;
-char buffer[64768];
+using namespace std;
 
 Proxy_Server::Proxy_Server(int port){
-	addrlen = sizeof(address);
-	opt = 1;
-	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
-    {
-        perror("socket failed");
-        exit(EXIT_FAILURE);
+
+    
+    bzero((char *) &serv_addr, sizeof(serv_addr));
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = INADDR_ANY;
+    serv_addr.sin_port = htons(port);
+
+    server_socket = socket(AF_INET, SOCK_STREAM, 0);
+    if(server_socket < 0){
+        std::cout << "Erro ao criar socket" << std::endl;
+        exit(-1);
     }
 
-    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt)))
-    {
-        perror("setsockopt");
-        exit(EXIT_FAILURE);
+    int opt = 1;
+    if(setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
+        std::cout << "Erro ao setar opcaos do socket" << std::endl;
+        exit(-1);
     }
 
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(port);
+    // Faz o bind do socket com a porta
+    if(bind(server_socket, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
+        std::cout << "Falha no bind!" << std::endl;
+        exit(-1);
+    }
 
-    if (bind(server_fd, (struct sockaddr *)&address,sizeof(address))<0)
-    {
-        perror("bind failed");
-        exit(EXIT_FAILURE);
-    }
-    if (listen(server_fd, 5) < 0)
-    {
-        perror("listen");
-        exit(EXIT_FAILURE);
-    }
+    // Comeca a ouvir a porta
+    if(listen(server_socket, 100) < 0) {
+        std::cout << "Erro na socket_server ao ouvir a porta " << port << std::endl;
+        exit(-1);
+    }    
+
 
 };
 
-std::string Proxy_Server::get_client_request(){
+string parse_url(string url){
+    string parsed("");
+    string internal = url;
+    vector<string> result = String_Functions::split(internal, "//");
+    if(result.size()==2)        
+        internal = result[1];
+        
+    if(internal.find('/')!=0){
+        vector<string> result2 = String_Functions::split_on_first(internal, "/");
+        parsed = "/";
+        parsed.append(result2[1]);
+    }else{
+        parsed = url;
+    }       
+    
+    return parsed;
+}
+
+void treat_request(HTTP_Request *request){
+    request->url = parse_url(request->url);
+    request->fields["Accept-Encoding:"] = "identity";
+    request->fields["Connection:"] = "close";
+}
+
+bool evaluate_request(HTTP_Request request){
+
+    if(request.method != "GET") return false;
+
+    return true;
+}
+
+
+HTTP_Request Proxy_Server::get_client_request(){
     
     char buffer[64768];
+    struct sockaddr cli_addr;
+    socklen_t clilen = sizeof(cli_addr);
 
-    if ((client_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)
-    {
-        perror("accept");
-        exit(EXIT_FAILURE);
+    int sock = accept(server_socket, &cli_addr, (socklen_t*) &clilen);
+
+    if(read(sock, buffer, sizeof(buffer))<0){
+        cout << "Falha ao tentar ler requisição do navegador" << endl;
+        exit(-1);
+    }
+    std::string request_text(buffer);
+
+    HTTP_Request request = HTTP_Request(request_text);
+    treat_request(&request);
+    if(evaluate_request(request)){
+        request.client_socket = sock;
+        request.accepted = true;
+    }
+    else{
+        request.accepted = false;
+        close(request.client_socket);
+        request.client_socket = -1;
     }
 
-    read(client_socket , buffer, sizeof(buffer));
-
-    std::string request(buffer);
     return request;
 }
 
 
+HTTP_Response Proxy_Server::make_request(HTTP_Request request){
 
-std::string Proxy_Server::make_request(std::string req){
+    if(!request.accepted){
+        HTTP_Response response = HTTP_Response();
+        response.client_socket = request.client_socket;
+        return response;
+    }
 
-    using namespace std;
+    string host = request.fields["Host:"];
 
-    struct hostent *req_host;
-    struct sockaddr_in serv_addr;
-    string request = req;
-
-    if((outbound_socket = socket(AF_INET,SOCK_STREAM,0)) < 0);
-
-    HTTP_Request reqst = HTTP_Request(request);
-    string host = reqst.fields["Host:"];
-
-    req_host = gethostbyname(host.c_str());
-    if ( (req_host == NULL) || (req_host->h_addr == NULL) ) {
-        std::cout << "Error retrieving DNS information." << std::endl;
+    struct addrinfo hints;
+    struct addrinfo *resp;
+    bzero((char *) &hints, sizeof(hints));
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_socktype = SOCK_STREAM;
+    if(getaddrinfo(host.c_str(), "80", &hints, &resp) != 0){
+        std::cout << "Erro ao resolver host: " << host << std::endl;
         exit(1);
     }
 
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(80);
+    outbound_socket = socket(resp->ai_family, resp->ai_socktype, resp->ai_protocol);
+    if(outbound_socket < 0){
+        std::cout << "Erro ao criar socket para requisicao" << std::endl;
+        exit(-1);
+    }
 
-    memcpy(&serv_addr.sin_addr.s_addr,req_host->h_addr,sizeof(req_host->h_addr));
+    if(connect(outbound_socket, resp->ai_addr, resp->ai_addrlen) < 0){
+        std::cout << "Erro ao conectar ao host: " << host << std::endl;
+        exit(-1);
+    }
 
-    if (connect(outbound_socket,(struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0);
-    
-    send(outbound_socket, request.c_str(), request.length(), 0);
+    string request_text = request.Assembly_Request();
+
+    if(send(outbound_socket, request_text.c_str(), request_text.length(), 0)<0){
+        cout << "Erro ao conectar ao enviar request: " << endl;
+        exit(-1);
+    }    
     
     char buff[1];
-    valread = read(outbound_socket, &buff, sizeof(buff));
-    string reply(buff); 
+    string reply("");
     valread = read(outbound_socket, &buff, sizeof(buff));  
     while(valread>0){
         reply.append(buff);
         valread = read(outbound_socket, &buff, sizeof(buff));
     }
+    if(valread<0){
+        cout<< "ERRO LENDO RESPOSTA DO SERVIDOR!" <<endl;
+    }
 
-    return reply;
+    HTTP_Response response = HTTP_Response(reply);
+    response.client_socket = request.client_socket;
 
+    close(outbound_socket); 
+
+    return response;
 
 }
 
-void Proxy_Server::reply_client(std::string reply){
-    if(send(client_socket, reply.c_str(), reply.length(), 0)<0){
-        perror("failed to send reply");
-        exit(EXIT_FAILURE);
-    }
-    close(client_socket);
+void Proxy_Server::reply_client(HTTP_Response response){
+
+    int sock = response.client_socket;
+    if(sock>0){    
+        string reply = response.Assembly_Response();
+        if(send(sock, reply.c_str(), reply.size(), 0)<0){
+            perror("failed to send reply");
+            exit(EXIT_FAILURE);
+        }
+        close(sock);
+    }    
 }

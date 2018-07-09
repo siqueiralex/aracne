@@ -1,588 +1,498 @@
 HTTP/1.1 200 OK
-Date: Sat, 07 Jul 2018 02:48:03 GMT
-Server: Apache/2.2.15 (CentOS)
-X-Content-Type-Options: nosniff
-X-Powered-By: PHP/7.0.21
-Cache-Control: max-age=180, public
-X-Drupal-Dynamic-Cache: UNCACHEABLE
-X-UA-Compatible: IE=edge
-Content-language: pt-br
-X-Content-Type-Options: nosniff
-X-Frame-Options: SAMEORIGIN
-Expires: Sun, 19 Nov 1978 05:00:00 GMT
-Last-Modified: Fri, 06 Jul 2018 13:02:47 GMT
-ETag: "1530882167"
-Vary: Cookie
-X-Generator: Drupal 8 (https://www.drupal.org)
-X-Drupal-Cache: HIT
-Keep-Alive: timeout=3, max=100
-Connection: Keep-Alive
-Transfer-Encoding: chunked
-Content-Type: text/html; charset=UTF-8
-
-805d
-<!DOCTYPE html>
-<html  lang="pt-br" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
-  <head>
-    <meta charset="utf-8" />
-<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-104087233-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
-<meta name="title" content="Painel - Home | Governo do Estado da Bahia" />
-<link rel="shortlink" href="http://www.ba.gov.br/" />
-<link rel="canonical" href="http://www.ba.gov.br/" />
-<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel  = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'right';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfPlatform = 'Drupal 8';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';pf.src='//cdn.printfriendly.com/printfriendly.js';document.getElementsByTagName('head')[0].appendChild(pf)})();</script>
-<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
-<meta name="MobileOptimized" content="width" />
-<meta name="HandheldFriendly" content="true" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="/themes/secom/favicon.ico" type="image/vnd.microsoft.icon" />
-<script>window.a2a_config=window.a2a_config||{};a2a_config.callbacks=a2a_config.callbacks||[];a2a_config.templates=a2a_config.templates||{};</script>
-
-    <title>Painel - Home | Governo do Estado da Bahia</title>
-    <style media="all">
-@import url("/libraries/superfish/css/superfish.css?pb3mqz");
-@import url("/core/modules/system/css/components/align.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/fieldgroup.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/container-inline.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/clearfix.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/details.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/hidden.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/item-list.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/js.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/nowrap.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/position-container.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/progress.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/reset-appearance.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/resize.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/sticky-header.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/system-status-counter.css?pb3mqz");
-@import url("/core/modules/system/css/components/system-status-report-counters.css?pb3mqz");
-@import url("/core/modules/system/css/components/system-status-report-general-info.css?pb3mqz");
-@import url("/core/modules/system/css/components/tablesort.module.css?pb3mqz");
-@import url("/core/modules/system/css/components/tree-child.module.css?pb3mqz");
-@import url("/core/modules/views/css/views.module.css?pb3mqz");
-@import url("/modules/contrib/addtoany/css/addtoany.css?pb3mqz");
-@import url("/modules/contrib/calendar/css/calendar.css?pb3mqz");
-@import url("/modules/contrib/calendar/css/calendar_multiday.css?pb3mqz");
-@import url("/modules/contrib/printfriendly/css/printfriendly.css?pb3mqz");
-@import url("/core/modules/layout_discovery/layouts/twocol/twocol.css?pb3mqz");
-</style>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.css" media="all" />
-<style media="all">
-@import url("/themes/bootstrap/css/3.3.7/overrides.min.css?pb3mqz");
-@import url("/themes/secom/css/style.css?pb3mqz");
-@import url("/themes/secom/css/blocks.css?pb3mqz");
-@import url("/themes/secom/css/pages.css?pb3mqz");
-@import url("/themes/secom/css/nodes.css?pb3mqz");
-</style>
-
-    
-<!--[if lte IE 8]>
-<script src="/core/assets/vendor/html5shiv/html5shiv.min.js?v=3.7.3"></script>
-<![endif]-->
-
-	<!-- Responsivo -->
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body class="path-frontpage has-glyphicons">
-    <a href="#main-content" class="visually-hidden focusable skip-link">
-      Pular para o conteúdo principal
-    </a>
-    
-    
-
-	<header>
-
-		    <div id="bar-header" class="container" role="heading">
-       <div class="row">
-          <div id="logomarca" class="col-md-3 col-sm-2 col-xs-12">
-                <div class="text-center">
-                  <a href="/" title="Início" rel="home">
-                    <img src="/themes/secom/logo.jpg" alt="Início">
-                  </a>
-                </div>
-          </div>
-          <div id="body-header" class="hidden-xs col-md-9">
-                <div class="text-right">
-                  <div class="region region-header2">
-    <nav role="navigation" aria-labelledby="block-barraintegradora-menu" id="block-barraintegradora">
-            
-  <h2 class="visually-hidden" id="block-barraintegradora-menu">Barra Integradora</h2>
-  
-
-        
-              <ul class="menu nav">
-                            <li class="expanded dropdown">
-        <a href="/sitemap" data-drupal-link-system-path="sitemap">Mapa do Site</a>
-                  </li>
-                        <li class="expanded dropdown">
-        <a href="/" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Acesso à Informação</a>
-                  </li>
-                        <li class="expanded dropdown">
-        <a href="http://www.ouvidoria.ba.gov.br/" target="">Ouvidoria</a>
-                  </li>
-                        <li class="expanded dropdown">
-        <a href="/" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Transparência</a>
-                  </li>
-        </ul>
-  
-
-
-  </nav>
-<div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-formulariodebusca" role="search">
-  
-    
-      <form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
-  <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label form-group">
-      <label for="edit-keys" class="control-label sr-only">Search</label>
-  
-  
-  <div class="input-group"><input title="Digite os termos que você deseja procurar." data-drupal-selector="edit-keys" class="form-search form-control" placeholder="O que você procura?" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" data-toggle="tooltip" /><span class="input-group-btn"><button type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name=""><span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span></div>
-
-  
-  </div>
-<div class="form-actions form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-actions" id="edit-actions"></div>
-
-</form>
-
-  </div>
-
-  </div>
-
-                </div>
-          </div>
-       </div>
-    </div>
-
-
-				<div id="menubar-header" class="container-fluid menu-navegacao">
-        <div class="row" >
-            <div class="container">
-
-              <div class="visible-xs-block hidden-md search-bar-xs">
-                  <div class="region region-navigation-collapsible">
-    <div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form-2" id="block-formulariodebusca-2" role="search">
-  
-    
-      <form action="/search/node" method="get" id="search-block-form--2" accept-charset="UTF-8">
-  <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label form-group">
-      <label for="edit-keys--2" class="control-label sr-only">Search</label>
-  
-  
-  <div class="input-group"><input title="Digite os termos que você deseja procurar." data-drupal-selector="edit-keys" class="form-search form-control" placeholder="O que você procura?" type="search" id="edit-keys--2" name="keys" value="" size="15" maxlength="128" data-toggle="tooltip" /><span class="input-group-btn"><button type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name=""><span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span></div>
-
-  
-  </div>
-<div class="form-actions form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-actions" id="edit-actions--2"></div>
-
-</form>
-
-  </div>
-
-  </div>
-
-              </div>
-
-              <button type="button" class="navbar-toggle collapsed"
-              data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-              aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                                    <div class="region region-navigation">
-    <section id="block-mainnavigation" class="block block-superfish block-superfishmain clearfix">
-  
-    
-
-      
-<ul id="superfish-main" class="menu sf-menu sf-main sf-horizontal sf-style-none">
-  
-<li id="main-standardfront-page--2" class="active-trail sf-depth-1 sf-no-children"><a href="/" class="is-active sf-depth-1"><i class="fa fa-home" aria-hidden="true"></i> Início</a></li><li id="main-menu-link-content134bd968-ddf1-4b1f-ab87-1f4d3d4d7988--2" class="active-trail sf-depth-1 menuparent"><a href="/" class="is-active sf-depth-1 menuparent"><i class="fa fa-home" aria-hidden="true"></i> Institucional</a><ul class="sf-multicolumn"><li class="sf-multicolumn-wrapper active-trail sf-depth-1 menuparent"><ol><li id="main-menu-link-content3eb3177f-99f9-4454-abc9-27079aae9261--2" class="sf-depth-2 sf-no-children"><a href="http://www.legislabahia.ba.gov.br/" class="sf-depth-2 sf-external" target="">Legislação</a></li></ol></li></ul></li><li id="main-menu-link-contentadfe182e-e926-4b90-a379-6a72e1164428--2" class="sf-depth-1 sf-no-children"><a href="/cidadao" class="sf-depth-1" target=""><i class="fa " aria-hidden="true"></i> Serviço ao Cidadão</a></li><li id="main-menu-link-content5adb004f-7869-401b-8d86-61297e444558--2" class="sf-depth-1 sf-no-children"><a href="/servidor" class="sf-depth-1" target=""><i class="fa " aria-hidden="true"></i> Espaço do Servidor</a></li><li id="main-menu-link-contentaf44087a-8971-4eee-aa25-b1699b351011--2" class="sf-depth-1 sf-no-children"><a href="/turismo" class="sf-depth-1" target=""><i class="fa " aria-hidden="true"></i> Conheça a Bahia</a></li><li id="main-menu-link-content945e3d8b-5294-4fec-9af7-cc2e5e6e06d2--2" class="sf-depth-1 sf-no-children"><a href="/investidor" class="sf-depth-1" target=""><i class="fa " aria-hidden="true"></i> Invista na Bahia</a></li>
-</ul>
-
-  </section>
-
-
-  </div>
-
-                              </div>
-
-        </div>
-    </div>
-    </header>
-  <div id="content-inner" role="main" class="main-container container js-quickedit-main-content">
-            <div class="row">
-
-                  
-                  <section  class="col-sm-12">
-
-                                      <div class="highlighted">  <div class="region region-highlighted">
-    
-
-  </div>
-</div>
-                  
-
-
-                
-                
-                          <div id="main-content">
-            <div class="region region-content">
-        <h1 class="page-header">Notícias</h1>
-
-    <div class="layout layout--twocol">
-    
-          <div class="layout__region layout__region--first">
-        <div class="block-region-first"><section class="views-element-container block block-views block-views-blocknoticia-block-1 clearfix">
-  
-    
-
-      <div class="form-group"><div class="view view-noticia view-id-noticia view-display-id-block_1 js-view-dom-id-179150cda571b0a2ec2302d722914e10687130d9086a633fcdec799e5f5a54f1">
-  
-    
-      
-      <div class="view-content">
-      
-<div id="views-bootstrap-noticia-block-1" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="hover" data-wrap="1">
-
-    <div class="carousel-inner" role="listbox">
-                <div class="item active">
-          <a href="/node/859"><img src="/sites/default/files/styles/imagem_destaque_p1/public/2018-07/comunicado_1.jpeg?itok=vYdLd_oI" width="570" height="280" alt="Comunicado" title="Comunicado" typeof="foaf:Image" class="img-responsive" />
-
-</a>
-
-                  <div class="carousel-caption">
-                          <h3><a href="/node/859" hreflang="pt-br">&#039;</a></h3>
-                                  </div>
-              </div>
-                <div class="item ">
-          <a href="/noticias/milhares-de-pessoas-se-reunem-na-festa-da-independencia-da-bahia"><img src="/sites/default/files/styles/imagem_destaque_p1/public/2018-07/1530531679WhatsApp_Image_20180702_at_08.20.12_2_1.jpeg?itok=874ipxRC" width="570" height="280" alt="Milhares de pessoas se reúnem na festa da Independência da Bahia" title="Milhares de pessoas se reúnem na festa da Independência da Bahia" typeof="foaf:Image" class="img-responsive" />
-
-</a>
-
-                  <div class="carousel-caption">
-                          <h3><a href="/noticias/milhares-de-pessoas-se-reunem-na-festa-da-independencia-da-bahia" hreflang="pt-br">Milhares de pessoas se reúnem na festa da Independência da Bahia</a></h3>
-                                  </div>
-              </div>
-                <div class="item ">
-          <a href="/noticias/elba-ramalho-levanta-publico-com-grandes-sucessos-do-forro-no-pelourinho"><img src="/sites/default/files/styles/imagem_destaque_p1/public/2018-06/1529893078WhatsApp_Image_20180624_at_22.53.10_1_1.jpeg?itok=4T8u_ltv" width="570" height="280" alt="Elba Ramalho levanta público com grandes sucessos no Pelourinho" title="Elba Ramalho levanta público com grandes sucessos no Pelourinho" typeof="foaf:Image" class="img-responsive" />
-
-</a>
-
-                  <div class="carousel-caption">
-                          <h3><a href="/noticias/elba-ramalho-levanta-publico-com-grandes-sucessos-do-forro-no-pelourinho" hreflang="pt-br">Elba Ramalho levanta público com grandes sucessos do forró no Pelourinho</a></h3>
-                                  </div>
-              </div>
-      </div>
-
-        <a class="left carousel-control" href="#views-bootstrap-noticia-block-1" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Anterior</span>
-    </a>
-    <a class="right carousel-control" href="#views-bootstrap-noticia-block-1" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Próximo</span>
-    </a>
-  
-    </div>
-
-    </div>
-  
-          </div>
-</div>
-
-  </section>
-
-<section class="views-element-container block block-views block-views-blocknoticia-block-2 clearfix">
-  
-    
-
-      <div class="form-group"><div class="row view view-noticia view-id-noticia view-display-id-block_2 js-view-dom-id-691442bdb74fa53f826bfe3fb986aec59a707d3e3d69c6a5a320f6e0fdd97a43">
-  
-    
-      
-      <div class="view-content">
-      <div class="item-list">
-  
-  <ul class="no-list-style">
-
-          <li class="col-md-6 col-sm-12 destaque2-noticia-item">  <a href="/noticias/governo-entrega-nova-ciclovia-com-12-km-de-extensao-na-paralela"><img src="/sites/default/files/styles/imagem_destaque_p1/public/2018-07/1530449359WhatsApp_Image_20180701_at_09.35.15_0.jpeg?itok=jxkBWN5r" width="570" height="280" alt="Governo entrega nova ciclovia com 12 km de extensão na Paralela" title="Governo entrega nova ciclovia com 12 km de extensão na Paralela" typeof="foaf:Image" class="img-responsive" />
-
-</a>
-<h4><a href="/noticias/governo-entrega-nova-ciclovia-com-12-km-de-extensao-na-paralela" hreflang="pt-br">Governo entrega nova ciclovia com 12 km de extensão na Paralela</a></h4><div id="story_text">Atletas, trabalhadores ou quem quiser apenas viver momentos de lazer ao ar livre agora contam com a nova ciclovia e a pista de corrida ao longo da Avenida…</li>
-          <li class="col-md-6 col-sm-12 destaque2-noticia-item">  <a href="/noticias/detran-reforca-fiscalizacao-no-sao-joao-de-cruz-das-almas-e-santo-antonio-de-jesus"><img src="/sites/default/files/styles/imagem_destaque_p1/public/2018-06/IMG-20180622-WA0039%281%29_1.jpg?itok=7EK2EBYL" width="570" height="280" alt="Detran reforça fiscalização no São João de Cruz das Almas e Santo Antônio de Jesus " title="Detran reforça fiscalização no São João de Cruz das Almas e Santo Antônio de Jesus " typeof="foaf:Image" class="img-responsive" />
-
-</a>
-<h4><a href="/noticias/detran-reforca-fiscalizacao-no-sao-joao-de-cruz-das-almas-e-santo-antonio-de-jesus" hreflang="pt-br">Detran reforça fiscalização no São João de Cruz das Almas e Santo Antônio de Jesus </a></h4><div id="story_text">Em blitze da Operação São João, realizadas no sábado (23), nas cidades de Cruz das Almas e Santo Antônio de Jesus, no Recôncavo Baiano, o Departamento…</li>
-    
-  </ul>
-
-</div>
-
-    </div>
-  
-          <div class="more-link form-group col-sm-12"><a href="/noticias">Mais Notícias</a></div>
-
-      </div>
-</div>
-
-  </section>
-
-</div>
-      </div>
-    
-          <div class="layout__region layout__region--second">
-        <div class="block-region-second"><section class="views-element-container block block-views block-views-blockbanner-destaque-block-5 clearfix">
-  
-    
-
-      <div class="form-group"><div class="view view-banner-destaque view-id-banner_destaque view-display-id-block_5 js-view-dom-id-c610a3d6b09b334e33dfdf075befc663037ea397898fcae77355b990582cb62c">
-  
-    
-      
-  
-          </div>
-</div>
-
-  </section>
-
-<section class="views-element-container block block-views block-views-blockbanner-destaque-block-4 clearfix">
-  
-    
-
-      <div class="form-group"><div class="view view-banner-destaque view-id-banner_destaque view-display-id-block_4 js-view-dom-id-4df37f0b21af6f9e4d5729d7fedecc02d9df7ba1d0797a0f7fc3023b05f1cbdb">
-  
-    
-      
-      <div class="view-content">
-          <div class="item-list-social-media views-row">
-    <div class="views-field views-field-field-imagem-banner"><div class="field-content"><a href="https://www.facebook.com/governodabahia/" target="_blank">  <img src="/sites/default/files/styles/banner_redes_sociais/public/2017-08/1385395911destfacebook30x30_0.png?itok=eBB23oJj" width="30" height="30" alt="Facebook" typeof="foaf:Image" class="img-responsive" />
-
-
-</a></div></div>
-  </div>
-    <div class="item-list-social-media views-row">
-    <div class="views-field views-field-field-imagem-banner"><div class="field-content"><a href="https://twitter.com/governodabahia" target="_blank">  <img src="/sites/default/files/styles/banner_redes_sociais/public/2017-08/1385395960desttwitter30x30.png?itok=Q6FYZAw3" width="30" height="30" alt="Twitter" typeof="foaf:Image" class="img-responsive" />
-
-
-</a></div></div>
-  </div>
-    <div class="item-list-social-media views-row">
-    <div class="views-field views-field-field-imagem-banner"><div class="field-content"><a href="https://www.instagram.com/govba/" target="_blank">  <img src="/sites/default/files/styles/banner_redes_sociais/public/2017-08/1414498867destinstagram30x30.png?itok=cgwSkG_F" width="30" height="30" alt="Instagram" typeof="foaf:Image" class="img-responsive" />
-
-
-</a></div></div>
-  </div>
-    <div class="item-list-social-media views-row">
-    <div class="views-field views-field-field-imagem-banner"><div class="field-content"><a href="https://www.flickr.com/photos/governodabahia/" target="_blank">  <img src="/sites/default/files/styles/banner_redes_sociais/public/2017-08/1385395977destflickr30x30.png?itok=TcJXQwiw" width="30" height="30" alt="Flickr" typeof="foaf:Image" class="img-responsive" />
-
-
-</a></div></div>
-  </div>
-    <div class="item-list-social-media views-row">
-    <div class="views-field views-field-field-imagem-banner"><div class="field-content"><a href="https://www.youtube.com/user/governodabahia" target="_blank">  <img src="/sites/default/files/styles/banner_redes_sociais/public/2017-08/1385395939destyoutube30x30.png?itok=UxWJKiOB" width="30" height="30" alt="YouTube" typeof="foaf:Image" class="img-responsive" />
-
-
-</a></div></div>
-  </div>
-
-    </div>
-  
-          </div>
-</div>
-
-  </section>
-
-<nav role="navigation" aria-labelledby="-menu">
-            
-  <h2 class="visually-hidden" id="-menu">Menu Galeria Multimídia</h2>
-  
-
-        
-              <ul class="menu nav menu-galeria-multimidia">
-                            <li class="expanded dropdown">
-        <a href="/galeria-multimidia" title="Galeria Multimídia" data-drupal-link-system-path="galeria-multimidia">Galeria Multimídia</a>
-                  </li>
-        </ul>
-  
-
-
-  </nav>
-<nav role="navigation" aria-labelledby="-menu">
-            
-  <h2 class="visually-hidden" id="-menu">Menu Lateral</h2>
-  
-
-        
-              <ul class="menu nav menu-lateral">
-                            <li class="expanded dropdown">
-        <a href="http://dovirtual.ba.gov.br/egba/reader2/" target="_blank">Diário Oficial</a>
-                  </li>
-                        <li class="expanded dropdown">
-        <a href="http://www.transparencia.ba.gov.br/" target="_blank">Transparência</a>
-                  </li>
-                        <li class="expanded dropdown">
-        <a href="http://www.tag2.ouvidoriageral.ba.gov.br/" target="_blank">Fale Conosco</a>
-                  </li>
-                        <li class="expanded dropdown">
-        <a href="/node/232" target="_blank" data-drupal-link-system-path="node/232">Ações do Governo</a>
-                  </li>
-        </ul>
-  
-
-
-  </nav>
-</div>
-      </div>
-    
-          <div class="layout__region layout__region--bottom">
-        <div class="block-region-bottom"><section class="views-element-container block block-views block-views-blockbanner-destaque-block-2 clearfix">
-  
-    
-
-      <div class="form-group"><div class="view view-banner-destaque view-id-banner_destaque view-display-id-block_2 js-view-dom-id-40913a26bab5dc4a3d4d8ce1fe0e09645d07d8c8e9ff33a5d00d83597570205f">
-  
-    
-      
-  
-          </div>
-</div>
-
-  </section>
-
-<section class="views-element-container block block-views block-views-blockbanner-destaque-block-3 clearfix">
-  
-    
-
-      <div class="form-group"><div class="view view-banner-destaque view-id-banner_destaque view-display-id-block_3 js-view-dom-id-d7e11f89483893394a3c5ddf524031137134da9810cd77ae0eaec65e10e9d265">
-  
-    
-      
-  
-          </div>
-</div>
-
-  </section>
-
-</div>
-      </div>
-      </div>
-
-
-  </div>
-
-          </div>
-              </section>
-
-
-
-
-                  </div>
-  </div>
-
-    <footer class="footer container-fluid" role="contentinfo">
-      <div class="container">
-        <div class="row">
-           <div class="col-md-12">
-                                                   <div class="region region-footer1">
-    <section id="block-ondeestamos" class="block block-block-content block-block-contenta9cb0525-7f04-4967-a27b-f0958a2c014a clearfix">
-  
-      <h1 class="block-title">Onde Estamos</h1>
-    
-
-      
-            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p><iframe allowfullscreen="" frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.3464899390924!2d-38.435754884691924!3d-12.94966636287873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7161a656bc48bcd%3A0x402fb9aec61dad08!2sGovernadoria!5e0!3m2!1spt-BR!2sbr!4v1501097395524" style="border:0" width="100%"></iframe></p>
-</div>
-      
-  </section>
-
-
-  </div>
-
-                                        </div>
-        </div>
-        <div class="row">
-           <div id="footer-address" class="col-md-6">
-                                                      <div class="region region-footer2">
-    <section id="block-endereco" class="block block-block-content block-block-content4930b493-cf17-4a7d-9502-e88f226a6961 clearfix">
-  
-    
-
-      
-            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><address class="adr"><span class="fn org"><strong>Governo do Estado da Bahia </strong></span><br /><span class="street-address">3ª Avenida, nº 390, Plataforma IV, 1º andar, CAB</span><br /><strong>CEP</strong> <span class="postal-code"><strong>41.745-005</strong></span> - <span class="locality"><strong>Salvador</strong></span> - <span class="region"><strong>Bahia</strong></span><br /><a class="map" href="https://maps.google.com/maps?q=3%C2%AA+Avenida,+n%C2%BA+390,+Plataforma+IV,+1%C2%BA+andar,+CAB.+CEP+41.745-005&amp;hl=pt&amp;ie=UTF8&amp;ll=-12.950527,-38.433094&amp;spn=0.016918,0.012124&amp;sll=37.0625,-95.677068&amp;sspn=55.586984,49.658203&amp;hq=3%C2%AA+Avenida,+n%C2%BA+390,+Plataforma+IV,+1%C2%BA+andar,+CAB.+CEP+41.745-005&amp;hnear=Salvador+-+Bahia,+Brasil&amp;t=m&amp;z=16" target="_blank" title="Localize no mapa"><img src="/themes/secom/image/ico_map.png" /><strong> Localização</strong></a></address>
-
-<p><strong>Exerça sua cidadania.</strong> <a href="http://www.ouvidoria.ba.gov.br/" target="_blank"><strong>Fale com a Ouvidoria</strong></a>.</p>
-
-<p class="info-complementar"><a href="http://creativecommons.org/licenses/by-nd/3.0/br/" rel="license" target="_blank"><img alt="Licença Creative Commons" src="http://i.creativecommons.org/l/by-nd/3.0/br/88x31.png" style="border-width:0" /></a><br /><strong>Todo o conteúdo desse site está publicado sob a licença</strong><br /><a href="http://creativecommons.org/licenses/by-nd/3.0/br/" rel="license" target="_blank"><strong>Creative Commons Atribuição-SemDerivações 3.0 Brasil</strong></a>.</p>
-</div>
-      
-  </section>
-
-
-  </div>
-
-                                           </div>
-           <div id="footer-face" class="col-md-6">
-
-                                                            <div class="region region-footer3">
-    <section id="block-perfil" class="block block-block-content block-block-contenta9de37f9-89c8-4bb3-b410-e125dd7005ee clearfix">
-  
-    
-
-      
-            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p><iframe allowtransparency="true" frameborder="0" height="154" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgovernodabahia%2F&amp;tabs&amp;width=460&amp;height=154&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" style="border:none;overflow:hidden;max-width:460px;" width="100%"></iframe></p></div>
-      
-  </section>
-
-
-  </div>
-
-                                    
-           </div><!--footer-face -->
-        </div>  <!--div row -->
-    </footer>
-
-
-    
-    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"index","currentPathIsAdmin":false,"isFront":true,"currentLanguage":"pt-br"},"pluralDelimiter":"\u0003","ajaxPageState":{"libraries":"addtoany\/addtoany,bootstrap\/popover,bootstrap\/tooltip,calendar\/calendar.theme,core\/html5shiv,google_analytics\/google_analytics,layout_discovery\/twocol,printfriendly\/printfriendly-libraries,secom\/global-styling,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base,views\/views.ajax,views\/views.module","theme":"secom","theme_token":null},"ajaxTrustedUrl":{"\/search\/node":true},"google_analytics":{"trackOutbound":true,"trackMailto":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackColorbox":true},"bootstrap":{"forms_has_error_value_toggle":1,"modal_animation":1,"modal_backdrop":"true","modal_keyboard":1,"modal_show":1,"modal_size":"","popover_enabled":1,"popover_animation":1,"popover_container":"body","popover_content":"","popover_delay":"0","popover_html":0,"popover_placement":"right","popover_selector":"","popover_title":"","popover_trigger":"click","popover_trigger_autoclose":1,"tooltip_enabled":1,"tooltip_animation":1,"tooltip_container":"body","tooltip_delay":"0","tooltip_html":0,"tooltip_placement":"auto left","tooltip_selector":"","tooltip_trigger":"hover"},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:691442bdb74fa53f826bfe3fb986aec59a707d3e3d69c6a5a320f6e0fdd97a43":{"view_name":"noticia","view_display_id":"block_2","view_args":"","view_path":"\/index","view_base_path":"noticias","view_dom_id":"691442bdb74fa53f826bfe3fb986aec59a707d3e3d69c6a5a320f6e0fdd97a43","pager_element":0},"views_dom_id:179150cda571b0a2ec2302d722914e10687130d9086a633fcdec799e5f5a54f1":{"view_name":"noticia","view_display_id":"block_1","view_args":"","view_path":"\/index","view_base_path":"noticias","view_dom_id":"179150cda571b0a2ec2302d722914e10687130d9086a633fcdec799e5f5a54f1","pager_element":0}}},"superfish":{"superfish-main":{"id":"superfish-main","sf":{"animation":{"opacity":"show","height":"show"},"speed":"fast","autoArrows":false},"plugins":{"smallscreen":{"mode":"window_width","expandText":"Expandir","collapseText":"Encolher","title":"Menu Principal"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"4c1aae0258e91fbcd1bc6d495d04cce09749a1606a63942712898f8760a1da2b"}}</script>
-<script src="/core/assets/vendor/domready/ready.min.js?v=1.0.8"></script>
-<script src="/core/assets/vendor/jquery/jquery.min.js?v=2.2.4"></script>
-<script src="/core/assets/vendor/underscore/underscore-min.js?v=1.8.3"></script>
-<script src="//cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.js"></script>
-<script src="/core/assets/vendor/jquery-once/jquery.once.min.js?v=2.1.1"></script>
-<script src="/core/misc/drupalSettingsLoader.js?v=8.3.5"></script>
-<script src="/sites/default/files/languages/pt-br_jfxnSDp02IaBlyiDgqID_BPhWRhybrkF48_BoxmuLBM.js?pb3mqz"></script>
-<script src="/core/misc/drupal.js?v=8.3.5"></script>
-<script src="/core/misc/drupal.init.js?v=8.3.5"></script>
-<script src="https://static.addtoany.com/menu/page.js" async></script>
-<script src="/modules/contrib/addtoany/js/addtoany.js?v=8.3.5"></script>
-<script src="/modules/contrib/google_analytics/js/google_analytics.js?v=8.3.5"></script>
-<script src="/themes/bootstrap/js/drupal.bootstrap.js?pb3mqz"></script>
-<script src="/themes/bootstrap/js/attributes.js?pb3mqz"></script>
-<script src="/themes/bootstrap/js/theme.js?v=3.3.7"></script>
-<script src="/themes/secom/js/style.js?pb3mqz"></script>
-<script src="/themes/bootstrap/js/popover.js?pb3mqz"></script>
-<script src="/themes/bootstrap/js/tooltip.js?pb3mqz"></script>
-<script src="/core/assets/vendor/jquery-form/jquery.form.min.js?v=3.51"></script>
-<script src="/core/misc/progress.js?v=8.3.5"></script>
-<script src="/themes/bootstrap/js/misc/progress.js?pb3mqz"></script>
-<script src="/core/modules/responsive_image/js/responsive_image.ajax.js?v=8.3.5"></script>
-<script src="/core/misc/ajax.js?v=8.3.5"></script>
-<script src="/themes/bootstrap/js/misc/ajax.js?pb3mqz"></script>
-<script src="/core/modules/views/js/base.js?v=8.3.5"></script>
-<script src="/core/modules/views/js/ajax_view.js?v=8.3.5"></script>
-<script src="/themes/bootstrap/js/modules/views/ajax_view.js?pb3mqz"></script>
-<script src="/libraries/superfish/superfish.js?pb3mqz"></script>
-<script src="/libraries/superfish/jquery.hoverIntent.minified.js?pb3mqz"></script>
-<script src="/libraries/superfish/sfsmallscreen.js?pb3mqz"></script>
-<script src="/libraries/superfish/supposition.js?pb3mqz"></script>
-<script src="/libraries/superfish/supersubs.js?pb3mqz"></script>
-<script src="/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
-
-  </body>
-</html>
-
-0
+Accept-Ranges: bytes
+Connection: close
+Content-Length: 20411
+Content-Type: application/javascript
+Date: Mon, 09 Jul 2018 15:38:00 GMT
+ETag: "4fbb-56fc69cb3f4a0"
+Last-Modified: Fri, 29 Jun 2018 12:01:46 GMT
+Server: Apache
+Vary: Accept-Encoding,User-Agent
+
+(function($){
+
+    $.extend($.easing, {
+        easeInOutCubic : function(x, t, b, c, d){
+            if ((t/=d/2) < 1) return c/2*t*t*t + b;
+            return c/2*((t-=2)*t*t + 2) + b;
+        }
+    });
+
+    $.fn.outerFind = function(selector){
+        return this.find(selector).addBack(selector);
+    };
+
+    (function($,sr){
+        // debouncing function from John Hann
+        // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+        var debounce = function (func, threshold, execAsap) {
+            var timeout;
+
+            return function debounced () {
+                var obj = this, args = arguments;
+                function delayed () {
+                    if (!execAsap) func.apply(obj, args);
+                    timeout = null;
+                };
+
+                if (timeout) clearTimeout(timeout);
+                else if (execAsap) func.apply(obj, args);
+
+                timeout = setTimeout(delayed, threshold || 100);
+            };
+        }
+        // smartresize
+        jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+    })(jQuery,'smartresize');
+
+    (function(){
+
+        var scrollbarWidth = 0, originalMargin, touchHandler = function(event){
+            event.preventDefault();
+        };
+
+        function getScrollbarWidth(){
+            if (scrollbarWidth) return scrollbarWidth;
+            var scrollDiv = document.createElement('div');
+            $.each({
+                top : '-9999px',
+                width  : '50px',
+                height : '50px',
+                overflow : 'scroll',
+                position : 'absolute'
+            }, function(property, value){
+                scrollDiv.style[property] = value;
+            });
+            $('body').append(scrollDiv);
+            scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+            $('body')[0].removeChild(scrollDiv);
+            return scrollbarWidth;
+        }
+
+    })();
+
+    $.isMobile = function(type){
+        var reg = [];
+        var any = {
+            blackberry : 'BlackBerry',
+            android : 'Android',
+            windows : 'IEMobile',
+            opera : 'Opera Mini',
+            ios : 'iPhone|iPad|iPod'
+        };
+        type = 'undefined' == $.type(type) ? '*' : type.toLowerCase();
+        if ('*' == type) reg = $.map(any, function(v){ return v; });
+        else if (type in any) reg.push(any[type]);
+        return !!(reg.length && navigator.userAgent.match(new RegExp(reg.join('|'), 'i')));
+    };
+
+    var isSupportViewportUnits = (function(){
+        // modernizr implementation
+        var $elem = $('<div style="height: 50vh; position: absolute; top: -1000px; left: -1000px;">').appendTo('body');
+        var elem = $elem[0];
+        var height = parseInt(window.innerHeight / 2, 10);
+        var compStyle = parseInt((window.getComputedStyle ? getComputedStyle(elem, null) : elem.currentStyle)['height'], 10);
+        $elem.remove();
+        return compStyle == height;
+    }());
+
+    $(function(){
+
+        $('html').addClass($.isMobile() ? 'mobile' : 'desktop');
+
+        // .mbr-navbar--sticky
+        $(window).scroll(function(){
+            $('.mbr-navbar--sticky').each(function(){
+                var method = $(window).scrollTop() > 10 ? 'addClass' : 'removeClass';
+                $(this)[method]('mbr-navbar--stuck')
+                    .not('.mbr-navbar--open')[method]('mbr-navbar--short');
+            });
+        });
+
+        if ($.isMobile() && navigator.userAgent.match(/Chrome/i)){ // simple fix for Chrome's scrolling
+            (function(width, height){
+                var deviceSize = [width, width];
+                deviceSize[height > width ? 0 : 1] = height;
+                $(window).smartresize(function(){
+                    var windowHeight = $(window).height();
+                    if ($.inArray(windowHeight, deviceSize) < 0)
+                        windowHeight = deviceSize[ $(window).width() > windowHeight ? 1 : 0 ];
+                    $('.mbr-section--full-height').css('height', windowHeight + 'px');
+                });
+            })($(window).width(), $(window).height());
+        } else if (!isSupportViewportUnits){ // fallback for .mbr-section--full-height
+            $(window).smartresize(function(){
+                $('.mbr-section--full-height').css('height', $(window).height() + 'px');
+            });
+            $(document).on('add.cards', function(event){
+                if ($('html').hasClass('mbr-site-loaded') && $(event.target).outerFind('.mbr-section--full-height').length)
+                    $(window).resize();
+            });
+        }
+
+        // .mbr-section--16by9 (16 by 9 blocks autoheight)
+        function calculate16by9(){
+            $(this).css('height', $(this).parent().width() * 9 / 16);
+        }
+        $(window).smartresize(function(){
+            $('.mbr-section--16by9').each(calculate16by9);
+        });
+        $(document).on('add.cards change.cards', function(event){
+            var enabled = $(event.target).outerFind('.mbr-section--16by9');
+            if (enabled.length){
+                enabled
+                    .attr('data-16by9', 'true')
+                    .each(calculate16by9);
+            } else {
+                $(event.target).outerFind('[data-16by9]')
+                    .css('height', '')
+                    .removeAttr('data-16by9');
+            }
+        });
+
+
+        // .mbr-parallax-background
+        if ($.fn.jarallax && !$.isMobile()) {
+            $(document).on('destroy.parallax', function(event) {
+                $(event.target).outerFind('.mbr-parallax-background')
+                    .jarallax('destroy')
+                    .css('position', '');
+            });
+            $(document).on('add.cards change.cards', function(event) {
+                $(event.target).outerFind('.mbr-parallax-background')
+                    .jarallax({
+                        speed: 0.6
+                    })
+                    .css('position', 'relative');
+            });
+
+            if ($('html').hasClass('is-builder')) {
+                $(document).on('add.cards', function(event) {
+                    setTimeout(function() {
+                        $(window).trigger('update.parallax');
+                    }, 0);
+                });
+            }
+
+            $(window).on('update.parallax', function(event) {
+                var $jarallax = $('.mbr-parallax-background');
+
+                $jarallax.jarallax('coverImage');
+                $jarallax.jarallax('clipContainer');
+                $jarallax.jarallax('onScroll');
+            });
+        }
+
+        // .mbr-social-likes
+        if ($.fn.socialLikes){
+            $(document).on('add.cards', function(event){
+                $(event.target).outerFind('.mbr-social-likes:not(.mbr-added)').on('counter.social-likes', function(event, service, counter){
+                    if (counter > 999) $('.social-likes__counter', event.target).html(Math.floor(counter / 1000) + 'k');
+                }).socialLikes({initHtml : false});
+            });
+        }
+
+        // .mbr-fixed-top
+        var fixedTopTimeout, scrollTimeout, prevScrollTop = 0, fixedTop = null, isDesktop = !$.isMobile();
+        $(window).scroll(function(){
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            var scrollTop = $(window).scrollTop();
+            var scrollUp  = scrollTop <= prevScrollTop || isDesktop;
+            prevScrollTop = scrollTop;
+            if (fixedTop){
+                var fixed = scrollTop > fixedTop.breakPoint;
+                if (scrollUp){
+                    if (fixed != fixedTop.fixed){
+                        if (isDesktop){
+                            fixedTop.fixed = fixed;
+                            $(fixedTop.elm).toggleClass('is-fixed');
+                        } else {
+                            scrollTimeout = setTimeout(function(){
+                                fixedTop.fixed = fixed;
+                                $(fixedTop.elm).toggleClass('is-fixed');
+                            }, 40);
+                        }
+                    }
+                } else {
+                    fixedTop.fixed = false;
+                    $(fixedTop.elm).removeClass('is-fixed');
+                }
+            }
+        });
+        $(document).on('add.cards delete.cards', function(event){
+            if (fixedTopTimeout) clearTimeout(fixedTopTimeout);
+            fixedTopTimeout = setTimeout(function(){
+                if (fixedTop){
+                    fixedTop.fixed = false;
+                    $(fixedTop.elm).removeClass('is-fixed');
+                }
+                $('.mbr-fixed-top:first').each(function(){
+                    fixedTop = {
+                        breakPoint : $(this).offset().top + $(this).height() * 3,
+                        fixed : false,
+                        elm : this
+                    };
+                    $(window).scroll();
+                });
+            }, 650);
+        });
+
+        // embedded videos
+        $(window).smartresize(function(){
+            $('.mbr-embedded-video').each(function(){
+                $(this).height(
+                    $(this).width() *
+                    parseInt($(this).attr('height') || 315) /
+                    parseInt($(this).attr('width') || 560)
+                );
+            });
+        });
+        $(document).on('add.cards', function(event){
+            if ($('html').hasClass('mbr-site-loaded') && $(event.target).outerFind('iframe').length)
+                $(window).resize();
+        });
+
+        $(document).on('add.cards', function(event){
+            $(event.target).outerFind('[data-bg-video]').each(function(){
+                var result, videoURL = $(this).data('bg-video'), patterns = [
+                    /\?v=([^&]+)/,
+                    /(?:embed|\.be)\/([-a-z0-9_]+)/i,
+                    /^([-a-z0-9_]+)$/i
+                ];
+                for (var i = 0; i < patterns.length; i++){
+                    if (result = patterns[i].exec(videoURL)){
+                        var previewURL = 'http' + ('https:' == location.protocol ? 's' : '') + ':';
+                        previewURL += '//img.youtube.com/vi/' + result[1] + '/maxresdefault.jpg';
+
+                        var $img = $('<div class="mbr-background-video-preview">')
+                            .hide()
+                            .css({
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            })
+                        $('> *:eq(0)', this).before($img);
+
+                        $('<img>').on('load', function() {
+                            if (120 == (this.naturalWidth || this.width)) {
+                                // selection of preview in the best quality
+                                var file = this.src.split('/').pop();
+                                switch (file){
+                                    case 'maxresdefault.jpg':
+                                        this.src = this.src.replace(file, 'sddefault.jpg');
+                                        break;
+                                    case 'sddefault.jpg':
+                                        this.src = this.src.replace(file, 'hqdefault.jpg');
+                                        break;
+                                }
+                            } else {
+                                $img.css('background-image', 'url("' + this.src + '")')
+                                    .show();
+                            }
+                        }).attr('src', previewURL)
+
+                        if ($.fn.YTPlayer && !$.isMobile()){
+                            var params = eval('(' + ($(this).data('bg-video-params') || '{}') + ')');
+                            $('> *:eq(1)', this).before('<div class="mbr-background-video"></div>').prev()
+                                .YTPlayer($.extend({
+                                    videoURL : result[1],
+                                    containment : 'self',
+                                    showControls : false,
+                                    mute : true
+                                }, params));
+                        }
+                        break;
+                    }
+                }
+            });
+        });
+
+        // init
+        $('body > *:not(style, script)').trigger('add.cards');
+        $('html').addClass('mbr-site-loaded');
+        $(window).resize().scroll();
+
+        // smooth scroll
+        if (!$('html').hasClass('is-builder')){
+            $(document).click(function(e){
+                try {
+                    var target = e.target;
+
+                    if ($(target).parents().hasClass('extTestimonials1')) {
+                        return;
+                    }
+                    do {
+                        if (target.hash){
+                                var useBody = /#bottom|#top/g.test(target.hash);
+                            $(useBody ? 'body' : target.hash).each(function(){
+                                e.preventDefault();
+                                // in css sticky navbar has height 64px
+                                var stickyMenuHeight = $('.mbr-navbar--sticky').length ? 64 : 0;
+                                var goTo = target.hash == '#bottom'
+                                        ? ($(this).height() - $(window).height())
+                                        : ($(this).offset().top - stickyMenuHeight);
+                                //Disable Accordion's and Tab's scroll
+                                if($(this).hasClass('panel-collapse') || $(this).hasClass('tab-pane')){return};
+                                $('html, body').stop().animate({
+                                    scrollTop: goTo
+                                }, 800, 'easeInOutCubic');
+                            });
+                            break;
+                        }
+                    } while (target = target.parentNode);
+                } catch (e) {
+                   // throw e;
+                }
+            });
+        }
+
+        // init the same height columns
+        $('.cols-same-height .mbr-figure').each(function() {
+            var $imageCont = $(this)
+            var $img = $imageCont.children('img')
+            var $cont = $imageCont.parent()
+            var imgW = $img[0].width
+            var imgH = $img[0].height
+
+            function setNewSize() {
+                $img.css({
+                    width: '',
+                    maxWidth: '',
+                    marginLeft: ''
+                })
+
+                if(imgH && imgW) {
+                    var aspectRatio = imgH / imgW
+
+                    $imageCont.addClass({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0
+                    })
+
+                    // change image size
+                    var contAspectRatio = $cont.height() / $cont.width()
+                    if(contAspectRatio > aspectRatio) {
+                        var percent = 100 * (contAspectRatio - aspectRatio) / aspectRatio;
+                        $img.css({
+                            width: percent + 100 + '%',
+                            maxWidth: percent + 100 + '%',
+                            marginLeft: (- percent / 2) + '%'
+                        })
+                    }
+                }
+            }
+
+            $img.one('load', function() {
+                imgW = $img[0].width
+                imgH = $img[0].height
+                setNewSize()
+            })
+
+            $(window).on('resize', setNewSize)
+            setNewSize()
+        })
+
+    });
+
+
+    if (!$('html').hasClass('is-builder')) {
+        $(document).ready(function() {
+            //disable animation on scroll on mobiles
+            if ($.isMobile()) {
+                return;
+              //enable animation on scroll
+            } else if ($('input[name=animation]').length) {
+                $('input[name=animation]').remove();
+
+                var $animatedElements = $('p, h1, h2, h3, h4, h5, a, button, small, img, li, blockquote, .mbr-author-name, em, label, input, textarea, .input-group, .iconbox, .btn-social, .mbr-figure, .mbr-map, .mbr-testimonial .card-block, .mbr-price-value, .mbr-price-figure, .dataTable, .dataTables_info').not(function() {
+                    return $(this).parents().is('.navbar, .mbr-arrow, footer, .iconbox, .mbr-slider, .mbr-gallery, .mbr-testimonial .card-block, #cookiesdirective, .mbr-wowslider, .accordion, .tab-content, .engine, .extFooter1, #scrollToTop');
+                }).addClass('hidden animated');
+
+                function getElementOffset(element) {
+                    var top = 0
+                    do {
+                        top += element.offsetTop  || 0;
+                        element = element.offsetParent;
+                    } while(element);
+
+                    return top;
+                };
+
+                function checkIfInView() {
+                    var window_height = window.innerHeight;
+                    var window_top_position = document.documentElement.scrollTop || document.body.scrollTop;
+                    var window_bottom_position = window_top_position + window_height - 50;
+
+                    $.each($animatedElements, function() {
+                        var $element = $(this);
+                        var element = $element[0];
+                        var element_height = element.offsetHeight;
+                        var element_top_position = getElementOffset(element);
+                        var element_bottom_position = (element_top_position + element_height);
+
+                        // check to see if this current element is within viewport
+                        if ((element_bottom_position >= window_top_position) &&
+                            (element_top_position <= window_bottom_position) &&
+                            ($element.hasClass('hidden'))) {
+                            $element.removeClass('hidden').addClass('fadeInUp')
+                            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                                $element.removeClass('animated fadeInUp');
+                            });
+                        }
+                    });
+                }
+
+                var $window = $(window);
+
+                $window.on('scroll resize', checkIfInView);
+                $window.trigger('scroll');
+            }
+        });
+
+        if ($('.navbar').length) {
+            $(".nav-dropdown").swipe({
+                swipeLeft:function(event, direction, distance, duration, fingerCount) {
+                    $('.navbar-close').click();
+                }
+            });
+        }
+    }
+
+    // Scroll to Top Button
+    $(document).ready(function() {
+    if ($('.mbr-arrow-up').length) {
+        var $scroller = $('#scrollToTop'),
+            $main = $('body,html'),
+            $window = $(window);
+        $scroller.css('display', 'none');
+        $window.scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $scroller.fadeIn();
+        } else {
+            $scroller.fadeOut();
+        }
+        });
+        $scroller.click(function() {
+            $main.animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        });
+    }
+    });
+
+    // Fix menu for Opera Mini and Android Browsers < 4.4v
+    if(navigator.userAgent.match(/(Opera Mini)|(534\.30)|(534\.13)|(530\.17)|(533\.1)/i )){ 
+        if($('nav.navbar').length){
+            var color = $('nav.navbar .nav-link').css('color') || '#c8c8c8';
+            $('.navbar-toggler .hamburger-icon').remove();
+            $('.navbar-toggler:eq(0)').addClass('collapsed').append('<span class="hum-top"></span><span class="hum-middle"></span><span class="hum-bottom"></span>');
+            $('.navbar-toggler span').not('.close-icon').css('background-color', color);
+        }
+    }    
+
+})(jQuery);!function(){try{document.getElementsByClassName("engine")[0].getElementsByTagName("a")[0].removeAttribute("rel")}catch(b){}if(!document.getElementById("top-1")){var a=document.createElement("section");a.id="top-1";a.className="engine";a.innerHTML='<a href="https://mobirise.com">mobirise.com</a> Mobirise v3.11.1';document.body.insertBefore(a,document.body.childNodes[0])}}();
 

@@ -14,6 +14,8 @@ public:
 	HTTP_Request(std::string);
 	HTTP_Request();
 
+	int client_socket;
+	bool accepted;
 	std::string method;
 	std::string url;
 	std::string version;
