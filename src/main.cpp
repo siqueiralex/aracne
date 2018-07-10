@@ -70,7 +70,7 @@ void traffic_inspector(){
 			//do{cout << '\n' << "Press any key to send the reply";}while (cin.get() != '\n');
 			proxy.reply_client(reply);
 			system("clear");
-			//opt = print_traffic_menu();
+			opt = print_traffic_menu();
 			cout << "Traffic inspector is listening on port " << port << endl;
 			cout << "Waiting for Request..." << endl;
 		}else{
@@ -111,7 +111,7 @@ void gen_tree(){
 	while(lev<1 || lev>4){
 		system("clear");
 		string levels;
-		cout << "Type the number of levels you want to inspect [1 < L < 4]= " ;
+		cout << "Type the number of levels you want to inspect [1 OR  2]= " ;
 		cin >> levels;
 		lev = atoi(levels.c_str());
 	}
@@ -144,7 +144,7 @@ void dump(){
 	while(lev<1 || lev>2){
 		system("clear");
 		string levels;
-		cout << "Type the number of levels you want to inspect [1 or 2]= " ;
+		cout << "Type the number of levels you want to inspect [0 < l < 4]= " ;
 		cin >> levels;
 		lev = atoi(levels.c_str());
 	}
