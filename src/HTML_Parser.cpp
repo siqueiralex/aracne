@@ -1,0 +1,95 @@
+#include "../include/HTML_Parser.hpp"
+
+// any global variable
+
+
+
+std::string HTML_Parser::get_uri(std::string request){
+	using namespace std;
+
+	string str = request;
+    regex r("GET \\s*([^ ]*)");
+    smatch m;
+    regex_search(str, m, r);
+    return m[1];
+    
+
+}
+
+std::string HTML_Parser::get_host(std::string request){
+	using namespace std;
+
+	string str = request;
+    regex r("Host: \\s*([^\\r]*)");
+    smatch m;
+    regex_search(str, m, r);
+    
+    return m[1];
+    
+}
+
+std::set<std::string> HTML_Parser::get_hrefs(const char *body){
+    using namespace std;
+
+    string str(body);
+    set<string> hrefs;
+    try {
+        regex r("href=\"(.*?)\"", regex_constants::icase);
+        hrefs = { sregex_token_iterator(str.begin(), str.end(), r, 1), sregex_token_iterator{} };
+    } catch (...) {;
+    }
+
+
+    return hrefs;
+
+}
+
+std::set<std::string> HTML_Parser::get_sources(const char *body){
+    using namespace std;
+    string str(body);
+    set<string> sources;
+    try {
+        regex r("src=\"(.*?)\"", regex_constants::icase);
+        sources = { sregex_token_iterator(str.begin(), str.end(), r, 1), sregex_token_iterator{} };
+    } catch (...) {;
+    }
+
+
+    
+    return sources;
+
+}
+
+std::set<std::string> HTML_Parser::get_imports(const char *body){
+    using namespace std;
+
+    string str(body);
+    set<string> imports;
+    try {
+        regex r("url(\"(.*?)\"", regex_constants::icase);
+        imports = { sregex_token_iterator(str.begin(), str.end(), r, 1), sregex_token_iterator{} };
+    } catch (...) {;
+    }
+
+    return imports;
+
+}
+
+std::string HTML_Parser::isolate_html(const char *data){
+    using namespace std;
+    
+    string str(data);
+    int from =str.find("<!DOCTYPE");
+    if(from>str.length()){
+       int from =str.find("<html"); 
+    }
+    int to = str.find("</html>");
+
+    if(from>=str.length())
+        return str;
+
+    if(to>=str.length())
+        return str.substr(from, str.length()-from);
+
+    return str.substr(from, to-from+7);
+}
