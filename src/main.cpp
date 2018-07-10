@@ -1,3 +1,8 @@
+/*
+	Classe principal que implementa a Command Line Interface, que printa menus e define a excução do Aracne
+
+*/
+
 #include <iostream>
 #include "../include/HTML_Parser.hpp"
 #include "../include/Spider.hpp"
@@ -92,7 +97,7 @@ void gen_tree(){
 	cout << "Generate Tree" << endl;
 	cout << "Type the url you want to inspect: ";
 	cin >> url;
-	Spider spider = Spider(url, port);
+	Spider spider = Spider(url);
 
 	while(!spider.valid){
 		system("clear");
@@ -100,7 +105,7 @@ void gen_tree(){
 		cout << "Generate Tree" << endl;
 		cout << "Type the url you want to inspect: ";
 		cin >> url;
-		spider = Spider(url, port);
+		spider = Spider(url);
 	}
 	int lev=0;
 	while(lev<1 || lev>4){
@@ -125,7 +130,7 @@ void dump(){
 	cout << "Dump website" << endl;
 	cout << "Type the url you want to dump: ";
 	cin >> url;
-	Spider spider = Spider(url, port);
+	Spider spider = Spider(url);
 
 	while(!spider.valid){
 		system("clear");
@@ -133,7 +138,7 @@ void dump(){
 		cout << "Dump website" << endl;
 		cout << "Type the url you want to dump= ";
 		cin >> url;
-		spider = Spider(url, port);
+		spider = Spider(url);
 	}
 	int lev=0;
 	while(lev<1 || lev>2){

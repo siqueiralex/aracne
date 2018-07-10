@@ -8,7 +8,16 @@ Implementado como Trabalho Final da disciplina Teleinformática e Redes 2, na Un
 - Jonatas Gomes Pinto Junior 14/0146407
 
 
+## Instruções de compilação:
 
+Utilize o comando make:
+```
+$ make
+```
+Então rode o programa da seguinte forma:
+```
+$ ./aracne -p [num_porta]
+```
 
 
 ## Classe Proxy_Server:
