@@ -1,32 +1,9 @@
 #include "../include/HTML_Parser.hpp"
+/*
+    A classe HTML_Parser contém funções úteis para extrair informações de conteúdo HTML através de regex.
 
-// any global variable
+*/
 
-
-
-std::string HTML_Parser::get_uri(std::string request){
-	using namespace std;
-
-	string str = request;
-    regex r("GET \\s*([^ ]*)");
-    smatch m;
-    regex_search(str, m, r);
-    return m[1];
-    
-
-}
-
-std::string HTML_Parser::get_host(std::string request){
-	using namespace std;
-
-	string str = request;
-    regex r("Host: \\s*([^\\r]*)");
-    smatch m;
-    regex_search(str, m, r);
-    
-    return m[1];
-    
-}
 
 std::set<std::string> HTML_Parser::get_hrefs(const char *body){
     using namespace std;

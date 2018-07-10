@@ -1,12 +1,15 @@
+/*
+    A classe HTTP_Response tem a função de fazer o parse da resposta HTTP, para posterior análise e tratamento.
+
+*/
+
 #include "../include/HTTP_Response.hpp"
 #include "../include/String_Functions.hpp"
 
 using namespace std;
-//construtor
-
-
+// construtor que faz o parse
 HTTP_Response::HTTP_Response(std::string Response_String){
-
+    //spliting (header from body)
     vector<string> splitted = String_Functions::split(Response_String, "\r\n\r\n");
     if(splitted.size()<2)
         splitted = String_Functions::split_on_first(Response_String, "\n\n");
@@ -14,12 +17,14 @@ HTTP_Response::HTTP_Response(std::string Response_String){
     string header = splitted[0];
 	data = splitted[1];
  
+    //parsing first line
 	vector<string> hd_lines = String_Functions::split(header, "\r\n");
 	string first_line = hd_lines[0];
 	vector<string> fl_tokens = String_Functions::split_on_first(first_line, " ");
     version = fl_tokens[0];
     status_code = fl_tokens[1];
-
+    
+    //parsing fields
     vector<string> temp;
     for( int i = 1; i<hd_lines.size(); i++){
          temp = String_Functions::split_on_first(hd_lines[i], " ");
@@ -28,11 +33,12 @@ HTTP_Response::HTTP_Response(std::string Response_String){
 
 };
 
+//construtor vazio
 HTTP_Response::HTTP_Response(){
     
 
 };
-
+// método que monta a resposta de volta a uma string para posterior envio
 std::string HTTP_Response::assembly(){
     using namespace std;
     string Response("");
@@ -60,6 +66,7 @@ std::string HTTP_Response::assembly(){
 
 }
 
+// método que printa a response (para debug)
 void HTTP_Response::print(){
     cout << "status code: " << status_code << endl;
     cout << "version: " << version << endl;
@@ -69,5 +76,5 @@ void HTTP_Response::print(){
     }
     cout << "data: " << endl << data <<endl;
 
-    cout << "Assembled: " << endl << assembly() << endl;
+    //cout << "Assembled: " << endl << assembly() << endl;
 }

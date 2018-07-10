@@ -1,3 +1,10 @@
+/*
+	A classe Spider realiza tanto a função de gerar a árvore hipertextual quanto o dump do cliente recursivo.
+Basicamente, se utiliza de todas as outras classes do projeto para conseguir fazer requests, tratar as respostas,
+salvar string em arquivo, imprimir na tela a árvore, etc
+*/
+
+
 #include "../include/HTML_Parser.hpp"
 #include "../include/Spider.hpp"
 #include "../include/Proxy_Server.hpp"
@@ -7,8 +14,8 @@
 
 using namespace std;
 
-Spider::Spider(string url, int port){
-	proxy_port = port;
+// construtor recebe uma url e trata ela pra ver se é válida (se contém um host)
+Spider::Spider(string url){
 	string internal = url;
 	vector<string> result = String_Functions::split(internal, "//");
 	if(result.size()==2){
@@ -45,6 +52,7 @@ Spider::Spider(string url, int port){
 
 };
 
+// método que avalia se uma url está abaixo do domínio da host principal do spider ( e se é válida)
 bool Spider::eval_url(string url){
 	if(url.size() ==0) return false;
 	string internal = url;
@@ -68,6 +76,7 @@ bool Spider::eval_url(string url){
 	return true;
 }
 
+// método que retira o host da url passada (para ter um padrão)
 string Spider::parse_url(string url){
 	string parsed("");
 	string internal = url;
@@ -94,6 +103,7 @@ string Spider::parse_url(string url){
 	return parsed;
 }
 
+//método que gera a árvore hipertextual
 void Spider::generate_tree(int levels){
 	int i = levels;
 	visited_urls.clear();
@@ -153,21 +163,8 @@ void Spider::generate_tree(int levels){
 	 	i--;
 	}while(i>=0);
 
-	// print to check
-	// for(std::map<string,set<string>>::iterator it=par_child.begin(); it!=par_child.end(); ++it){
- //        cout << it->first << ": ";
- //        set<string> urls =it->second;
- //        for(set<string>::iterator kt = urls.begin(); kt != urls.end(); ++kt)
- //        	cout << *kt << " ";
- //        cout << endl;	  
- //    }
-
-
-
-
-
 }
-
+// método que faz o parse de uma url pra um nome de arquivo (retira os "/")
 std::string Spider::url_to_filename(std::string url_in){
 
 	string filename("");
@@ -190,6 +187,7 @@ std::string Spider::url_to_filename(std::string url_in){
 	return filename;
 }
 
+// método que realiza o dump a partir da árvore hipertextual e outras estruturas preenchidas
 void Spider::dump(int levels){
 	this->generate_tree(levels);
 	set<string> to_translate = visited_urls;
@@ -238,6 +236,7 @@ void Spider::dump(int levels){
 
 }
 
+// método que printa a árvore hipertextual
 void Spider::print_tree(int levels){
 
 	if(levels==0){

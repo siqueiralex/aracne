@@ -7,6 +7,8 @@
 #include <map>
 #include <string.h>
 
+/* Headers da classe HTTP_Request */
+
 class HTTP_Request{
 
 public:

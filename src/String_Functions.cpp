@@ -1,7 +1,13 @@
+/*
+    Classe criada para facilitar manipulações de string e evitar retrabalho
+*/
+
+
 #include "../include/String_Functions.hpp"
 
 using namespace std;
 
+// transforma string em vetor dividindo por caracter delimitador
 std::vector<std::string> String_Functions::split(std::string str, const char * delimiter){
 
     vector<string> tokens;
@@ -21,6 +27,7 @@ std::vector<std::string> String_Functions::split(std::string str, const char * d
     return tokens;
 }
 
+// transforma string em vetor tamanho 2 dividindo por primeira aparição de caracter delimitador
 std::vector<std::string> String_Functions::split_on_first(std::string str, const char * delimiter){
 
     vector<string> tokens;
@@ -41,6 +48,7 @@ std::vector<std::string> String_Functions::split_on_first(std::string str, const
     return tokens;
 }
 
+// sava string em arquivo passando o path e o nome
 int String_Functions::string_to_file(std::string str, const char *path, const char *file){
     //save to  file
     FILE *f;
@@ -54,6 +62,7 @@ int String_Functions::string_to_file(std::string str, const char *path, const ch
     return 0;
 }
 
+// carrega string a partir de arquivo
 std::string String_Functions::string_from_file(const char*file){
 
     FILE *f;
@@ -66,6 +75,7 @@ std::string String_Functions::string_from_file(const char*file){
     return res;
 }
 
+// substitui conteúdo de string
 std::string String_Functions::replace(std::string file, const char*from,const char*to){
 
     string str = file;

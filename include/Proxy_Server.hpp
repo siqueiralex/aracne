@@ -13,7 +13,7 @@
 
 
 #define PORT 8228
-
+/* Headers da classe Proxy server */
 class Proxy_Server{
 
 public:
