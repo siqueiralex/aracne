@@ -8,8 +8,10 @@
 
 using namespace std;
 
-int process_arguments(int argc, char **argv){
-	int port = 8228;
+int port;
+
+void process_arguments(int argc, char **argv){
+	port = 8228;
 	if(argc==2){
 		string arg(argv[1]);
 		if(arg.find("-p")==0){ 
@@ -24,35 +26,72 @@ int process_arguments(int argc, char **argv){
 			if(atoi(argv[2])>0 && atoi(argv[2])<100000)
 				port = atoi(argv[2]);
 	}
-	
-	return port;
+}
+
+void traffic_inspector(Proxy_Server *proxy){
+	cout << "Traffic inspector is listening on port " << port << endl;
+	while(1){
+		string req = proxy->get_client_request();
+		HTTP_Request request = HTTP_Request(req);
+		cout << "Request received - Host: " << request.fields["Host:"] << " URL: " << request.url << endl; 
+		if(request.eval()){
+			String_Functions::string_to_file(req, ".", "request.txt");
+			system("nano request.txt");
+			req = String_Functions::string_from_file("request.txt");
+			string reply = proxy->make_request(req);
+			HTTP_Response response = HTTP_Response(reply);
+			String_Functions::string_to_file(reply, ".", "response.txt");
+			system("nano response.txt");
+			reply = String_Functions::string_from_file("response.txt");
+			proxy->reply_client(reply);
+		}else{
+			cout <<endl<< "Rejected! Only GET/HTTP requests accepted! " << endl;
+			request.print(); cout << endl<<endl;
+		}
+	}
+}
+
+int print_main_menu(){
+	string option;
+	cout << "(1) Traffic Inspector" << endl;
+	cout << "(2) Generate Tree of Url's" << endl;
+	cout << "(3) Dump website" << endl;
+	cout << "(4) Exit" << endl;
+	cout << "Select your option ->> ";
+	cin >> option;
+	return atoi(option.c_str());
+}
+
+void gen_tree(){
+
+}
+
+void dump(){
+
 }
 
 int main(int argc, char **argv){
 
-	int port = process_arguments(argc, argv);
+	process_arguments(argc, argv);
 	cout <<"Aracne started using port: "<< port << endl;
 	
-	// Client Proxy usage 
-	Proxy_Server proxy = Proxy_Server(port);
-	string req = proxy.get_client_request();
-	HTTP_Request request = HTTP_Request(req);
-	String_Functions::string_to_file(req,"./", "request.txt");
+	int opt = 1;
+	while(opt!=4){
+		opt = print_main_menu();	
+		if(opt>0 && opt <5){
+			if(opt==1){
+				Proxy_Server proxy = Proxy_Server(port); 
+				traffic_inspector(&proxy);
+			}
+			if(opt==2) gen_tree();
+			if(opt==3) dump();
+		}
+		system("clear");
+		if(opt <1 || opt >4) cout << "Opção inválida!" << endl;
+	}
 
-	string reply = proxy.make_request(request.Assembly_Request());
-	HTTP_Response response = HTTP_Response(reply);
-	String_Functions::string_to_file(reply,"./", "response.txt");
-	proxy.reply_client(response.Assembly_Response());
 
-
-
-	// string url("www.ba.gov.br");
-	// Spider spider = Spider(url, port);
-	// spider.dump_htmls(0);
-
-	//do the same changing the final line to:
-	//spider.generate_tree(level);
-	//to simply generate the tree.
+	
 
 	return 0;
 }

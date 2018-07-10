@@ -18,8 +18,8 @@ public:
 	std::string version;
 	std::map<std::string, std::string> fields; 
 	std::string data;
-
-	std::string Assembly_Response();
+	void print();
+	std::string assembly();
 
 
 };

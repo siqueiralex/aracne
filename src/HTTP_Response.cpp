@@ -33,7 +33,7 @@ HTTP_Response::HTTP_Response(){
 
 };
 
-std::string HTTP_Response::Assembly_Response(){
+std::string HTTP_Response::assembly(){
     using namespace std;
     string Response("");
 
@@ -58,4 +58,16 @@ std::string HTTP_Response::Assembly_Response(){
 
     return Response;
 
+}
+
+void HTTP_Response::print(){
+    cout << "status code: " << status_code << endl;
+    cout << "version: " << version << endl;
+
+    for(map<string, string>::iterator it = fields.begin(); it!=fields.end(); ++it){
+        cout << it->first << " " << it->second << endl;
+    }
+    cout << "data: " << endl << data <<endl;
+
+    cout << "Assembled: " << endl << assembly() << endl;
 }

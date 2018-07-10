@@ -31,7 +31,7 @@ Proxy_Server::Proxy_Server(int port){
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 5) < 0)
+    if (listen(server_fd, 100) < 0)
     {
         perror("listen");
         exit(EXIT_FAILURE);
@@ -39,9 +39,10 @@ Proxy_Server::Proxy_Server(int port){
 
 };
 
+
 std::string Proxy_Server::get_client_request(){
     
-    char buffer[64768];
+    using namespace std;
 
     if ((client_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)
     {
@@ -49,10 +50,23 @@ std::string Proxy_Server::get_client_request(){
         exit(EXIT_FAILURE);
     }
 
-    read(client_socket , buffer, sizeof(buffer));
+    char buff[1];
+    string req(""); 
+    valread = recv(client_socket, &buff, sizeof(buff), 0);  
+    while(valread>0){
+        req.append(buff);
+        valread = recv(client_socket, &buff, sizeof(buff), 0);
+    }
+    if(valread<0){
+        perror("error reading request");
+        exit(EXIT_FAILURE);
+    }
 
-    std::string request(buffer);
-    return request;
+
+    HTTP_Request request = HTTP_Request(req);
+    request.treat();
+
+    return request.assembly();
 }
 
 
@@ -72,7 +86,7 @@ std::string Proxy_Server::make_request(std::string req){
 
     req_host = gethostbyname(host.c_str());
     if ( (req_host == NULL) || (req_host->h_addr == NULL) ) {
-        std::cout << "Error retrieving DNS information." << std::endl;
+        std::cout << "Error retrieving DNS information. for host:" <<  host << std::endl;
         exit(1);
     }
 

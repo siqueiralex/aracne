@@ -110,7 +110,7 @@ void Spider::generate_tree(int levels){
 				request.url = *url;
 				request.fields["Host:"] = host;
 				cout << "Checking the URI: "<< *url<<endl;
-				string reply = proxy.make_request(request.Assembly_Request());
+				string reply = proxy.make_request(request.assembly());
 				HTTP_Response response = HTTP_Response(reply);
 				htmls[*url] = reply;
 

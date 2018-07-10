@@ -37,7 +37,7 @@ HTTP_Request::HTTP_Request(){
 
 };
 
-std::string HTTP_Request::Assembly_Request(){
+std::string HTTP_Request::assembly(){
     using namespace std;
     string Request("");
 
@@ -55,7 +55,33 @@ std::string HTTP_Request::Assembly_Request(){
         Request.append("\r\n");
     }
     Request.append("\r\n");
+    Request.append(body);
 
     return Request;
 
+}
+
+void HTTP_Request::print(){
+    cout << "method: " << method << endl;
+    cout << "version: " << version << endl;
+    cout << "url: " << url << endl;
+
+    for(map<string, string>::iterator it = fields.begin(); it!=fields.end(); ++it){
+        cout << it->first << " " << it->second << endl;
+    }
+    cout << "body: " << body << endl<<endl;
+
+    cout << "Assembled: " << endl << assembly() << endl;
+}
+
+void HTTP_Request::treat(){
+
+    fields["Connection:"] = "close";
+    fields["Accept-Encoding:"] = "identity";
+
+}
+
+bool HTTP_Request::eval(){
+    if( method != "GET") return false;
+    return true;
 }

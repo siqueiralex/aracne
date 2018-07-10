@@ -19,8 +19,10 @@ public:
 	std::string version;
 	std::map<std::string, std::string> fields; 
 	std::string body;
-
-	std::string Assembly_Request();
+	void print();
+	void treat();
+	bool eval();
+	std::string assembly();
 
 };
 
