@@ -36,7 +36,7 @@ std::set<std::string> HTML_Parser::get_hrefs(const char *body){
     try {
         regex r("href=\"(.*?)\"", regex_constants::icase);
         hrefs = { sregex_token_iterator(str.begin(), str.end(), r, 1), sregex_token_iterator{} };
-    } catch (std::regex_error& e) {;
+    } catch (...) {;
     }
 
 
@@ -51,7 +51,7 @@ std::set<std::string> HTML_Parser::get_sources(const char *body){
     try {
         regex r("src=\"(.*?)\"", regex_constants::icase);
         sources = { sregex_token_iterator(str.begin(), str.end(), r, 1), sregex_token_iterator{} };
-    } catch (std::regex_error& e) {;
+    } catch (...) {;
     }
 
 
@@ -68,7 +68,7 @@ std::set<std::string> HTML_Parser::get_imports(const char *body){
     try {
         regex r("url(\"(.*?)\"", regex_constants::icase);
         imports = { sregex_token_iterator(str.begin(), str.end(), r, 1), sregex_token_iterator{} };
-    } catch (std::regex_error& e) {;
+    } catch (...) {;
     }
 
     return imports;

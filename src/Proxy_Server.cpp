@@ -3,11 +3,13 @@
 
 int server_fd, client_socket, outbound_socket;
 struct sockaddr_in address;
+struct sockaddr_in serv_addr;
+    struct sockaddr cli_addr;
 int addrlen, valread;
 int opt;
 char buffer[64768];
 
-Proxy_Server::Proxy_Server(int port){
+void Proxy_Server::init(int port){
 	addrlen = sizeof(address);
 	opt = 1;
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
@@ -16,11 +18,11 @@ Proxy_Server::Proxy_Server(int port){
         exit(EXIT_FAILURE);
     }
 
-    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt)))
-    {
-        perror("setsockopt");
-        exit(EXIT_FAILURE);
-    }
+    // if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt)))
+    // {
+    //     perror("setsockopt");
+    //     exit(EXIT_FAILURE);
+    // }
 
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
@@ -31,7 +33,7 @@ Proxy_Server::Proxy_Server(int port){
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
-    if (listen(server_fd, 100) < 0)
+    if (listen(server_fd, 5) < 0)
     {
         perror("listen");
         exit(EXIT_FAILURE);
@@ -44,29 +46,27 @@ std::string Proxy_Server::get_client_request(){
     
     using namespace std;
 
+    char buffer[542768];
+    bzero((char *) &buffer, sizeof(buffer));
     if ((client_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)
     {
         perror("accept");
         exit(EXIT_FAILURE);
     }
-
-    char buff[1];
-    string req(""); 
-    valread = recv(client_socket, &buff, sizeof(buff), 0);  
-    while(valread>0){
-        req.append(buff);
-        valread = recv(client_socket, &buff, sizeof(buff), 0);
-    }
-    if(valread<0){
-        perror("error reading request");
-        exit(EXIT_FAILURE);
+    cout << "Accepted connection!" << endl;
+    int num = read(client_socket , buffer, sizeof(buffer));
+    if(num >0){
+        string req(buffer);
+        HTTP_Request request = HTTP_Request(req);
+        request.treat();
+        return request.assembly();
     }
 
-
-    HTTP_Request request = HTTP_Request(req);
-    request.treat();
-
+    HTTP_Request request = HTTP_Request();
+    request.method = "POST";
     return request.assembly();
+
+
 }
 
 

@@ -13,6 +13,7 @@ public:
 
 	Spider(std::string, int);
 	int proxy_port;
+	bool valid;
 	std::string root;
 	std::string host;
 	std::set<std::string> visited_urls;
@@ -24,7 +25,8 @@ public:
 	std::string parse_url(std::string url);
 	std::string url_to_filename(std::string url);
 	void generate_tree(int);
-	void dump_htmls(int);
+	void print_tree(int);
+	void dump(int);
 
 };
 

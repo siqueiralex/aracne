@@ -28,12 +28,13 @@ HTTP_Request::HTTP_Request(std::string Request_String){
 
     //lacks the body parser
 
-
 };
 HTTP_Request::HTTP_Request(){
 
     method = "GET";
     version = "HTTP/1.1";
+    url = "";
+    body = "";
 
 };
 
@@ -75,7 +76,7 @@ void HTTP_Request::print(){
 }
 
 void HTTP_Request::treat(){
-
+    //version = "HTTP/1.0";
     fields["Connection:"] = "close";
     fields["Accept-Encoding:"] = "identity";
 

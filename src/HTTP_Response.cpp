@@ -29,7 +29,7 @@ HTTP_Response::HTTP_Response(std::string Response_String){
 };
 
 HTTP_Response::HTTP_Response(){
-
+    
 
 };
 

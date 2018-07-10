@@ -28,26 +28,50 @@ void process_arguments(int argc, char **argv){
 	}
 }
 
-void traffic_inspector(Proxy_Server *proxy){
+int print_traffic_menu(){
+	string option;
+	cout << "(1) Inspect another Request/Reply" << endl;
+	cout << "(Any other) Back to main menu" << endl;
+	cout << "Your option -->> ";
+	cin >> option;
+	return atoi(option.c_str());
+}
+
+void traffic_inspector(){
+	int opt = 1;
+	Proxy_Server proxy = Proxy_Server();
+	proxy.init(port);
+	system("clear");
 	cout << "Traffic inspector is listening on port " << port << endl;
-	while(1){
-		string req = proxy->get_client_request();
+	cout << "Waiting for Request..." << endl;	
+	while(opt == 1){
+		system("clear");
+		cout << "Traffic inspector is listening on port " << port << endl;
+		cout << "Waiting for Request..." << endl;
+		string req = proxy.get_client_request();
 		HTTP_Request request = HTTP_Request(req);
 		cout << "Request received - Host: " << request.fields["Host:"] << " URL: " << request.url << endl; 
 		if(request.eval()){
 			String_Functions::string_to_file(req, ".", "request.txt");
 			system("nano request.txt");
 			req = String_Functions::string_from_file("request.txt");
-			string reply = proxy->make_request(req);
+			// do{cout << '\n' << "Press any key to send the request";}while (cin.get() != '\n');
+			// cout << "Waiting for Response..." << endl;
+			string reply = proxy.make_request(req);
 			HTTP_Response response = HTTP_Response(reply);
 			String_Functions::string_to_file(reply, ".", "response.txt");
 			system("nano response.txt");
 			reply = String_Functions::string_from_file("response.txt");
-			proxy->reply_client(reply);
+			//do{cout << '\n' << "Press any key to send the reply";}while (cin.get() != '\n');
+			proxy.reply_client(reply);
+			system("clear");
+			//opt = print_traffic_menu();
+			cout << "Traffic inspector is listening on port " << port << endl;
+			cout << "Waiting for Request..." << endl;
 		}else{
 			cout <<endl<< "Rejected! Only GET/HTTP requests accepted! " << endl;
-			request.print(); cout << endl<<endl;
 		}
+		
 	}
 }
 
@@ -63,10 +87,67 @@ int print_main_menu(){
 }
 
 void gen_tree(){
+	string url;
+	system("clear");
+	cout << "Generate Tree" << endl;
+	cout << "Type the url you want to inspect: ";
+	cin >> url;
+	Spider spider = Spider(url, port);
 
+	while(!spider.valid){
+		system("clear");
+		cout << "You have typed an invalid url!" << endl;
+		cout << "Generate Tree" << endl;
+		cout << "Type the url you want to inspect: ";
+		cin >> url;
+		spider = Spider(url, port);
+	}
+	int lev=0;
+	while(lev<1 || lev>4){
+		system("clear");
+		string levels;
+		cout << "Type the number of levels you want to inspect [1 < L < 4]= " ;
+		cin >> levels;
+		lev = atoi(levels.c_str());
+	}
+	spider.generate_tree(lev-1);
+	spider.print_tree(lev-1);
+	string temp;
+	cout << "Press any key to go back to main menu...";
+	cin >> temp;
 }
 
+
 void dump(){
+	
+	string url;
+	system("clear");
+	cout << "Dump website" << endl;
+	cout << "Type the url you want to dump: ";
+	cin >> url;
+	Spider spider = Spider(url, port);
+
+	while(!spider.valid){
+		system("clear");
+		cout << "You have typed an invalid url!" << endl;
+		cout << "Dump website" << endl;
+		cout << "Type the url you want to dump= ";
+		cin >> url;
+		spider = Spider(url, port);
+	}
+	int lev=0;
+	while(lev<1 || lev>2){
+		system("clear");
+		string levels;
+		cout << "Type the number of levels you want to inspect [1 or 2]= " ;
+		cin >> levels;
+		lev = atoi(levels.c_str());
+	}
+	spider.dump(lev-1);
+
+	string temp;
+	cout << "Press any key to go back to main menu...";
+	cin >> temp;
 
 }
 
@@ -77,17 +158,16 @@ int main(int argc, char **argv){
 	
 	int opt = 1;
 	while(opt!=4){
+		system("clear");
+		if(opt <1 || opt >4) cout << "Opção inválida!" << endl;
 		opt = print_main_menu();	
 		if(opt>0 && opt <5){
-			if(opt==1){
-				Proxy_Server proxy = Proxy_Server(port); 
-				traffic_inspector(&proxy);
+			if(opt==1){ 
+				traffic_inspector();
 			}
 			if(opt==2) gen_tree();
 			if(opt==3) dump();
 		}
-		system("clear");
-		if(opt <1 || opt >4) cout << "Opção inválida!" << endl;
 	}
 
 
